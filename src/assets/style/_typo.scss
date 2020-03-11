@@ -1,0 +1,13 @@
+@import "colors";
+
+.color-peche {
+  color: $peche;
+}
+
+.typo-link {
+  cursor: pointer;
+  color: $marron;
+  &:hover {
+    color: $turquoise-fonce;
+  }
+}
