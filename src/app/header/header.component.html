@@ -4,31 +4,28 @@
       <img src="../../assets/images/logo.png" alt="logo" class="logo">
     </div>
     <div class="col-3">
-      <h1 class="color-peche pt-5 text-center">Séréni'chat</h1>
+      <h1 class="color-peche pt-5 text-center text-vbig">Séréni'chat</h1>
     </div>
   </div>
 
   <div class="navigation-bar row text-center mt-3">
     <div class="col">
-      <div class="typo-link" routerLink="">Accueil</div>
+      <div [class]="getLinkClass('/')" routerLink="">Accueil</div>
     </div>
     <div class="col">
-      <div class="typo-link" routerLink="/nos-locaux">Nos locaux</div>
+      <div [class]="getLinkClass('/nos-locaux')" routerLink="/nos-locaux">Nos locaux</div>
     </div>
     <div class="col">
-      <div class="typo-link" routerLink="/pour-qui">Pour qui ?</div>
+      <div [class]="getLinkClass('/nos-pensionnaires')" routerLink="/nos-pensionnaires">Nos pensionnaires</div>
     </div>
     <div class="col">
-      <div class="typo-link" routerLink="/nos-pensionnaires">Nos pensionnaires</div>
+      <div [class]="getLinkClass('/reservation')" routerLink="/reservation">Réservation</div>
     </div>
     <div class="col">
-      <div class="typo-link" routerLink="/reservation">Réservation</div>
+      <div [class]="getLinkClass('/nous-aider')" routerLink="/nous-aider">Nous aider ?</div>
     </div>
     <div class="col">
-      <div class="typo-link" routerLink="/nous-aider">Nous aider ?</div>
-    </div>
-    <div class="col">
-      <div class="typo-link" routerLink="/contact">Contact</div>
+      <div [class]="getLinkClass('/contact')" routerLink="/contact">Contact</div>
     </div>
   </div>
 

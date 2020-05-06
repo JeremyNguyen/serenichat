@@ -1,0 +1,17 @@
+.jumbo {
+  border-radius: 30px 0 20px 0;
+  border: 5px solid rgba(178, 222, 214, 1);
+}
+
+.jumbo-title {
+  border-bottom: 5px solid rgba(178, 222, 214, 1);
+  color: $peche-foncee;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.jumbo-body {
+  padding: 2rem;
+  font-size: 1.25rem;
+}
