@@ -18,7 +18,25 @@
 .text-vbig {
   font-size: 4rem;
 }
+
 .typo-link {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:visited {
+    color: blueviolet;
+  }
+}
+
+a:visited {
+  color: blueviolet;
+}
+
+.typo-link-header {
   cursor: pointer;
   color: $marron;
   &:hover {
@@ -26,7 +44,7 @@
   }
 }
 
-.typo-link.selected {
+.typo-link-header.selected {
   color: $turquoise-foncee;
 }
 

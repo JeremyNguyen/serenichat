@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit {
 
   getLinkClass(route: string) {
     if (this.router.url === route) {
-      return 'typo-link selected';
+      return 'typo-link-header selected';
     } else {
-      return 'typo-link';
+      return 'typo-link-header';
     }
   }
 }
