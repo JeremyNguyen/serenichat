@@ -1,5 +1,24 @@
 @import "colors";
 
+@font-face {
+  font-family: grot;
+  src: url(assets/font/brandon-grot.woff);
+}
+
+@font-face {
+  font-family: westhouse;
+  src: url(assets/font/Westhouse.ttf);
+}
+
+.typo-westhouse {
+  font-family: 'westhouse', 'arial', sans-serif;
+}
+
+body {
+  font-family: 'grot', 'arial', sans-serif;
+  font-size: 20px;
+}
+
 .color-peche {
   color: $peche;
 }
@@ -13,10 +32,10 @@
 }
 
 .text-big {
-  font-size: 1.25rem;
+  font-size: 28px;
 }
 .text-vbig {
-  font-size: 4rem;
+  font-size: 6rem;
 }
 
 .typo-link {

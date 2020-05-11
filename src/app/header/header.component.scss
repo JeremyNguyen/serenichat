@@ -8,8 +8,7 @@
   height: 3rem;
 }
 .navigation-bar div {
-  padding-top: 0.4rem;
-  font-family: brandon-grot-w01-light, sans-serif;
+  padding-top: 0.3rem;
 }
 
 hr {
@@ -18,5 +17,9 @@ hr {
 
 .logo {
   width: 100%;
+  cursor: pointer;
 }
 
+h1 {
+  cursor: pointer;
+}

@@ -11,6 +11,7 @@ import { NosPensionnairesComponent } from './nos-pensionnaires/nos-pensionnaires
 import { ReservationComponent } from './reservation/reservation.component';
 import { NousAiderComponent } from './nous-aider/nous-aider.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     NosPensionnairesComponent,
     ReservationComponent,
     NousAiderComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
