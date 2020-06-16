@@ -3,12 +3,12 @@
 .navigation-bar {
   background-color:
     rgba(247, 198, 169, 1);
-  border-radius: 80px;
+  border-radius: 10px;
   border: solid 0px;
-  height: 3rem;
 }
 .navigation-bar div {
   padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 hr {
@@ -16,10 +16,19 @@ hr {
 }
 
 .logo {
-  width: 100%;
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+  }
+  width: 30%;
   cursor: pointer;
 }
 
 h1 {
   cursor: pointer;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
