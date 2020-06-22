@@ -1,21 +1,427 @@
-<p>Réservation : afficher tarifs direct !
-  Options :
-  Séances dispos ou pas visibles sur calendrier + combien places dispo.
-  1ère séance gratuite : mardi, jeudi et vendredi.
-  1h à max 2 enfants : 30 euros. 2 personnes max peuvent réserver la même heure. Notifiés qu'il reste 1 ou
-  2 places disponibles. mardi, jeudi et vendredi. Cocher une case aussi si 2 enfants même famille, dispo que si 2/2
-  places dispos.
-  1h personnalisée 1 enfant : 45 euros. mardi, jeudi et vendredi : même créneau que à 2 : « séances à 1 ou 2
-  enfants » et cocher si on veut perso.
-  demi journée max 2 enfants : 75 euros (4h à 25 euros dont 1 gratuite). 2 personnes max peuvent réserver
-  la même demi journée. Notifiés qu'il reste 1 ou 2 places disponibles. Mercredi et samedi 4h matin 4h
-  aprem. Cocher une case aussi si 2 enfants même famille, dispo que si 2/2 places dispos.
-  15 min entre chaque heure pour m'occuper des parents et du local.
-  Pendant la réservation, à remplir : nom prénom parent, tel, mail, nom prénom enfant, infos supplémentaires comment gérer
-  l'enfant, « ajouter un enfant » si on réserve pour 2, sera ou non accompagné, si oui parent ou aidant.
-  Total euros (à payer au local), validation.
-  Séance devient non dispo sur calendrier quand 2/2 ou 1/1. Doit pouvoir redevenir dispo si annulation. Système
-  d'annulation par moi.
-  Après la réservation il leur faut un mail de confirmation + infos genre digicode.
-  Il faut que moi j'aie accès à un calendrier à jour où je vois qui a réservé quand + les infos sur comment
-  gérer les enfants.</p>
+<div class="text-big">
+  <div class="color-turquoise-foncee text-center mt-5">
+    <div>
+      La première séance d’une heure est gratuite.
+      Nos tarifs :
+      Séance d’une heure classique 30 euros.
+      Séance personnalisée 45 euros. Vous pourrez préciser lors de la réservation d’un créneau libre que vous le voulez non partagé.
+      Demi journée 75 euros (4h à 25 euros dont une offerte).
+    </div>
+  </div>
+
+  <div (click)="debug()">debug</div>
+
+  <div (click)="addDays(-7)">previous week</div>
+  <div (click)="addDays(7)">next week</div>
+
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th>
+      <span class="day">1</span>
+      <span class="long">Monday</span>
+      <span class="short">Mon</span>
+    </th>
+    <th>
+      <span class="day">2</span>
+      <span class="long">Tuesday</span>
+      <span class="short">Tue</span>
+    </th>
+    <th>
+      <span class="day">3</span>
+      <span class="long">Wendsday</span>
+      <span class="short">We</span>
+    </th>
+    <th>
+      <span class="day">4</span>
+      <span class="long">Thursday</span>
+      <span class="short">Thur</span>
+    </th>
+    <th>
+      <span class="day active">5</span>
+      <span class="long">Friday</span>
+      <span class="short">Fri</span>
+    </th>
+    <th>
+      <span class="day">6</span>
+      <span class="long">Saturday</span>
+      <span class="short">Sat</span>
+    </th>
+    <th>
+      <span class="day">7</span>
+      <span class="long">Sunday</span>
+      <span class="short">Sun</span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="hour" rowspan="4"><span>1:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>2:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td class="hour" rowspan="4"><span>3:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>4:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>5:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>6:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>7:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="hour" rowspan="4"><span>8:00</span></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+
+
+OUTIL RESERVATION
+Front et back mélangés
+Envoyé à Vincent
+
+Texte au dessus du calendrier :
+
+«La première séance d’une heure est gratuite : vous pourrez cocher une case le spécifiant lors de votre réservation.
+Nos tarifs :
+Séance d’une heure classique 30 euros.
+Séance personnalisée 45 euros. Vous pourrez préciser lors de la réservation d’un créneau libre que vous le voulez non partagé.
+Demi journée 75 euros (4h à 25 euros dont une offerte).
+
+Vert = créneau libre
+Orange = une place sur deux est disponible
+Rouge = le créneau est réservé
+Gris = créneau non disponible à la réservation.»
+
+Calendrier avec en vert si 2 places dispo, en orange si 1 place dispo, en rouge si 0 dispo, en gris si local fermé.
+
+Séances d’une heure, maximum 2 places, mardi, jeudi et vendredi :
+A : si deux places dispo, on peut réserver une place sur deux, ou les deux, ou demander une séance tout seul.
+Roulette nombre de places que je veux réserver : 1 place, 2 places, séance non partagée.
+Si sélectionné 1 place, case à cocher : c’est ma première séance. Dans ce cas là noter gratuit. Si pas coché, indiquer 30 euros.
+Si selectionné 2 places, cases à cocher 1) c’est la première séance des deux enfants 2) c’est la premiere séance d’un des deux et 3) ça n’est pas notre premiere séance. Indiquer selon le choix Gratuit, 30 euros ou 60.
+Si sélectionné séance non partagée, case à cocher : c’est ma première séance. Dans ce cas là noter gratuit. Si pas coché, indiquer 45 euros.
+B : si 1 place dispo, on ne peut réserver qu’une place partagée. Case à cocher c’est ma première séance, si oui afficher gratuit, si non afficher 30 euros.
+C : si pas de place dispo : pas possible de réserver.
+
+Séances demi journées, maximum 2 places, mercredi et samedi.
+A : si deux places dispo, on peut réserver une place sur deux ou les deux.
+Roulette nombre de places que je veux réserver : 1 place ou 2 places.
+Si sélectionné 1 place, indiquer 75 euros (4h à 25 euros dont une offerte).
+Si sélectionné 2 places, indiquer 2x75 euros (2x4h à 25 euros dont une offerte).
+B : si une place dispo, on ne peut réserver qu’une place partagée. Afficher 75 euros (4h à 25 euros dont une offerte).
+
+Prévenir quand quelqu’un réserve en même temps que toi. Si la personne a fini avant toi et que ça impacte tes choix (genre a réservé une place alors que tu voulais les deux) prévenir qu’il faut recommencer avec les choix dispos ou choisir un autre créneau. Si pas d’impact, pas besoin de message.
+
+Quelqu’un peut réserver au plus tard jusqu’à 1h avant la séance. A moins d’1h avant le créneau qu’ils veulent, plus possible même si dispo. Sinon pas le temps de m’adapter ! Mettre les créneaux de la prochaine heure non dispo ?
+
+Calendrier :
+Mardi, jeudi et vendredi, séances d’une heure avec 30 minutes de battement entre chaque séance pour nettoyer le local et débriefer les parents.
+Séances 9h-10h, 10h30-11h30, 12h-13h, 13h30-14h30, 15h-16h, 16h30-17h, 17h30-18h30.
+Mercredi et samedi, demi journées de 4h matin et 4h aprèm, avec 1h de battement entre les deux pour nettoyer et débriefer.
+Séances 9h-13h et 14h-18h.
+
+Pour réserver, après avoir choisi les places, coché les cases, vu le prix… On remplit nom prénom parent ou aidant, tel, mail. Nom prénom enfant(s). Pas obligatoire mais infos supplémentaires (enfant déjà venu donc infos déjà dispo dans notre base de données, comment gérer enfant, crises, peur…).
+
+Case à cocher : en cochant cette case, je certifie que les personnes qui visiteront Séréni’chat ne sont pas allergiques aux chats ni aux lapins.
+
+Case à cocher : en cochant cette case, je certifie avoir compris que même si tout contact est étroitement surveillé et qu’un incident est hautement improbable, nos boules de poils peuvent réagir à un stress par une griffure ou morsure.
+
+De notre côté, nous certifions que tous les habitants de Séréni’chat sont bien sûr en bonne santé, à jour dans leurs vaccins, anti parasités et vermifugés.
+Préciser que infos conservées juste pour pouvoir gérer les réservations et avoir des infos sur comment gérer l’enfant.
+
+Validation, puis ils reçoivent un mail avec confirmation date et heure, nombre de places + infos importantes. Ils sont notifiés après validation qu’ils ont reçu un mail.
+
+Je dois de mon côté avoir accès à un calendrier des réservations à jour avec toutes les infos qu’ils ont rempli.
+
+Le calendrier du site se met à jour en fonction des créneaux réservés : une séance devient non dispo quand 2 places sur 2 réservées ou 1 séance non partagée réservée, un créneau passe à ½ quand une place a été réservée… etc
+Je dois pouvoir annuler une réservation. Le calendrier doit s’adapter en redevenant dispo.
+
+Niveau référencement :
+Le site doit apparaître dans les résultats quand on cherche « médiation animale Paris », « autisme animaux Paris », « Séréni’chat », « serenichat », « acticités assistées par l’animal Paris »…
+J’ai fait quelques recherches, j’ai trouvé une histoire de balisage schema ? Est-ce que le référencement dépend aussi du nom de domaine ? J’aimerais un truc du genre serenichat-mediation-animale.com mais ça se discute.
+
+Remarques : en fait plutôt des roulettes au lieu de cases à cocher et termes à changer ( genre séance non partagée)
