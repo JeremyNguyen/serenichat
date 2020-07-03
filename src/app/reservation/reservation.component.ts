@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import moment from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reservation',
@@ -9,8 +9,10 @@ import moment from 'moment';
 })
 export class ReservationComponent implements OnInit {
 
-  startOfWeek: Date;
+  startOfWeek: Date;  
   endOfWeek: Date;
+
+  jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
   creneaux = {
     0: null,
@@ -36,8 +38,8 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.startOfWeek = moment().startOf('week').add('d', 1).toDate();
-    this.endOfWeek = moment().endOf('week').add('d', 1).toDate();
+    this.startOfWeek = moment().startOf('week').add(1, 'd').toDate();
+    this.endOfWeek = moment().endOf('week').add(1, 'd').toDate();
   }
 
   debug() {
@@ -47,8 +49,6 @@ export class ReservationComponent implements OnInit {
 
     for (const day of this.getWeek()) {
       console.log(day);
-      console.log(this.getCreneauxForDay(day));
-      console.log(this.getDureeSeanceForDay(day));
     }
 
   }
@@ -61,17 +61,27 @@ export class ReservationComponent implements OnInit {
     return this.dureeSeance[day.getDay()];
   }
 
+  getDay(day: number, short: boolean) {
+    return short ? (this.jours[day].substring(0, 3)) + '.' : this.jours[day];
+  }
+
+  getDate(date: Date) {
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const month = date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth();
+    return `${day}/${month}`;
+  }
+
   getWeek() {
     const week = [];
     week.push();
     for (let i = 0; i < 7; i++) {
-      week.push(moment(this.startOfWeek).add('d', i).toDate());
+      week.push(moment(this.startOfWeek).add(i, 'd').toDate());
     }
     return week;
   }
 
   addDays(days: number) {
-    this.startOfWeek = moment(this.startOfWeek).add('d', days).toDate();
-    this.endOfWeek = moment(this.endOfWeek).add('d', days).toDate();
+    this.startOfWeek = moment(this.startOfWeek).add(days, 'd').toDate();
+    this.endOfWeek = moment(this.endOfWeek).add(days, 'd').toDate();
   }
 }
