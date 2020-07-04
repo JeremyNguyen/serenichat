@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import * as moment from 'moment';
+import { SeanceDto } from 'src/commons/dtos/seanceDto';
 
 @Component({
   selector: 'app-reservation',
@@ -14,25 +15,14 @@ export class ReservationComponent implements OnInit {
 
   jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
-  creneaux = {
-    0: null,
-    1: null,
-    2: ['9:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00'],
-    3: ['9:00', '14:00'],
-    4: ['9:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00'],
-    5: ['9:00', '10:30', '12:00', '13:30', '15:00', '16:30', '18:00'],
-    6: ['9:00', '14:00'],
-  };
-
-  dureeSeance = {
-    0: null,
-    1: null,
-    2: 1,
-    3: 4,
-    4: 1,
-    5: 1,
-    6: 4
-  };
+  seances = [
+    new SeanceDto('Matin 1', '9h00', '10h00'),
+    new SeanceDto('Matin 2', '10h30', '11h30'),
+    new SeanceDto('Midi 1', '12h00', '13h00'),
+    new SeanceDto('Après-midi 1', '13h30', '14h30'),
+    new SeanceDto('Après-midi 2', '15h00', '16h00'),
+    new SeanceDto('Après-midi 3', '16h30', '17h30')
+  ]
 
   constructor() {
   }
@@ -42,23 +32,13 @@ export class ReservationComponent implements OnInit {
     this.endOfWeek = moment().endOf('week').add(1, 'd').toDate();
   }
 
-  debug() {
-/*    console.log(this.startOfWeek);
-    console.log(this.endOfWeek);
-    console.log(this.getWeek());*/
+  debug(day, seance) {
+    // for (const day of this.getWeek()) {
+    //   console.log(day);
+    // }
 
-    for (const day of this.getWeek()) {
-      console.log(day);
-    }
+    alert(day.getDate() + seance.libelle + seance.debut + seance.fin);
 
-  }
-
-  getCreneauxForDay(day: Date) {
-    return this.creneaux[day.getDay()];
-  }
-
-  getDureeSeanceForDay(day: Date) {
-    return this.dureeSeance[day.getDay()];
   }
 
   getDay(day: number, short: boolean) {

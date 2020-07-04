@@ -46,9 +46,6 @@ table{
   tbody{
     tr{
       background: $light;
-      &:nth-child(odd){
-        background:$light2;
-       }
       &:nth-child(4n+0){
         td{
           border-bottom:1px solid $blue;
@@ -65,7 +62,7 @@ table{
           border-right:1px solid $blue;
          }
         &.hour{
-          font-size: 2em;
+          font-size: 1em;
           padding: 0;
           color: $blue;
           background:#fff;
