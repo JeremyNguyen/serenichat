@@ -13,6 +13,14 @@ import { NousAiderComponent } from './nous-aider/nous-aider.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import {FormsModule} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -24,15 +32,24 @@ import { MatIconModule } from '@angular/material/icon';
     ReservationComponent,
     NousAiderComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
+  entryComponents: [FormulaireComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

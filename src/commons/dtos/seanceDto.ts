@@ -1,14 +1,12 @@
-import { Time } from '@angular/common';
-
 export class SeanceDto {
 
-libelle: String;
-debut: String;
-fin: String;
+  libelle: string;
+  debut: string;
+  fin: string;
 
-    constructor(libelle: String, debut: String, fin: String) {
-        this.libelle = libelle;
-        this.debut = debut;
-        this.fin = fin;
-    }
+  constructor(libelle: string, debut: string, fin: string) {
+    this.libelle = libelle;
+    this.debut = debut;
+    this.fin = fin;
+  }
 }

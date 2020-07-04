@@ -1,0 +1,104 @@
+<div class="jumbo mb-3">
+
+  <div class="p-2">
+
+    <div class="jumbo-title">Réserver pour le {{ getDate(data.day) }}</div>
+
+    <div class="container">
+      <form #formulaire="ngForm" (ngSubmit)="reserver(formulaire)">
+
+        <div class="row">
+          <label>Je désire une séance individuelle</label>
+          <mat-checkbox
+            name="seanceIndividuelle"
+            color="accent"
+            [(ngModel)]="formulaireDto.seanceIndividuelle">
+          </mat-checkbox>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Nombre d'enfants</label>
+            <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required>
+              <mat-radio-button [value]="1">1</mat-radio-button>
+              <mat-radio-button [value]="2">2</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="w-100">
+              <mat-label>Nom accompagnant</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.nomAidant" name="nomAidant" required>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="w-100">
+              <mat-label>Prénom accompagnant</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.prenomAidant" name="prenomAidant" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="w-100">
+              <mat-label>Téléphone accompagnant</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.telAidant" type="tel" name="telAidant"
+                     pattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$" required #tel="ngModel">
+              <mat-error *ngIf="formulaireDto.telAidant != null && tel.invalid">Téléphone invalide</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="w-100">
+              <mat-label>E-mail accompagnant</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.mailAidant" type="email" name="mailAidant" required
+                     #email="ngModel" email>
+              <mat-error *ngIf="formulaireDto.mailAidant != null && email.invalid">E-mail invalide</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="w-100">
+              <mat-label>Prénom visiteur {{ formulaireDto.nbVisiteur === 2 ? '1' : '' }}</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.prenomVisiteur1" name="prenomVisiteur1" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6" *ngIf="formulaireDto.nbVisiteur === 2">
+            <mat-form-field class="w-100">
+              <mat-label>Prénom visiteur 2</mat-label>
+              <input matInput [(ngModel)]="formulaireDto.prenomVisiteur2" name="prenomVisiteur2" required>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="w-100">
+              <mat-label>Exemples de commentaires</mat-label>
+              <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <label>L'aidant restera pendant la séance</label>
+            <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
+              <mat-radio-button [value]="true">Oui</mat-radio-button>
+              <mat-radio-button [value]="false">Non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-2">
+          <button type="button" color="primary" mat-raised-button (click)="dialogRef.close(false)">Annuler</button>
+          <button type="submit" color="primary" mat-raised-button (click)="submitted = true;">Confirmer</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
