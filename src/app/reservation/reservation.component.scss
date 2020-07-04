@@ -46,11 +46,10 @@ table{
   tbody{
     tr{
       background: $light;
-      &:nth-child(4n+0){
         td{
           border-bottom:1px solid $blue;
          }
-       }
+       
       td{
         text-align: center;
         vertical-align: middle;

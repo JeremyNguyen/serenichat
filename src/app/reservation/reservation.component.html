@@ -33,41 +33,8 @@
   <tbody>
   <ng-container *ngFor="let seance of seances">
   <tr>
-    <td class="hour" rowspan="4"><span>{{ seance.libelle }}</span></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="hour"><span>{{ seance.libelle }}</span></td>
+    <td *ngFor="let day of getWeek()" (click)="debug(day, seance)"></td>
   </tr>
 </ng-container>
   </tbody>
