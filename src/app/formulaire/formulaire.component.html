@@ -2,29 +2,20 @@
 
   <div class="p-2">
 
-    <div class="jumbo-title">Réserver pour le {{ getDate(data.day) }}</div>
+    <div class="jumbo-title">
+      <div class="col">
+        Réserver pour le {{ getDate(data.day) }} :
+      </div>
+      <div class="col">
+        <mat-radio-group [(ngModel)]="demiJournee" name="demiJournee" required class="title-radio">
+          <mat-radio-button [value]="true">{{ getDemiJourneeLabel() }}</mat-radio-button>
+          <mat-radio-button [value]="false">séance de {{ data.seance.debut }} - {{ data.seance.fin }}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
 
-    <div class="container">
+    <div class="container pt-3">
       <form #formulaire="ngForm" (ngSubmit)="reserver(formulaire)">
-
-        <div class="row">
-          <label>Je désire une séance individuelle</label>
-          <mat-checkbox
-            name="seanceIndividuelle"
-            color="accent"
-            [(ngModel)]="formulaireDto.seanceIndividuelle">
-          </mat-checkbox>
-        </div>
-
-        <div class="row">
-          <div class="form-group">
-            <label>Nombre d'enfants</label>
-            <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required>
-              <mat-radio-button [value]="1">1</mat-radio-button>
-              <mat-radio-button [value]="2">2</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col">
@@ -61,17 +52,47 @@
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col">
+            <label>Je désire une séance individuelle :</label>
+            <mat-radio-group [(ngModel)]="formulaireDto.seanceIndividuelle" name="seanceIndividuelle" required (change)="seanceIndividuelleChange()">
+              <mat-radio-button [value]="true">Oui</mat-radio-button>
+              <mat-radio-button [value]="false">Non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Nombre d'enfants :</label>
+            <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required [disabled]="formulaireDto.seanceIndividuelle">
+              <mat-radio-button [value]="1">1</mat-radio-button>
+              <mat-radio-button [value]="2">2</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
             <mat-form-field class="w-100">
               <mat-label>Prénom visiteur {{ formulaireDto.nbVisiteur === 2 ? '1' : '' }}</mat-label>
               <input matInput [(ngModel)]="formulaireDto.prenomVisiteur1" name="prenomVisiteur1" required>
             </mat-form-field>
           </div>
-          <div class="col-6" *ngIf="formulaireDto.nbVisiteur === 2">
+          <div class="col" *ngIf="formulaireDto.nbVisiteur === 2">
             <mat-form-field class="w-100">
               <mat-label>Prénom visiteur 2</mat-label>
               <input matInput [(ngModel)]="formulaireDto.prenomVisiteur2" name="prenomVisiteur2" required>
             </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>L'aidant restera pendant la séance :</label>
+            <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
+              <mat-radio-button [value]="true">Oui</mat-radio-button>
+              <mat-radio-button [value]="false">Non</mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
 
@@ -82,18 +103,11 @@
               <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire"></textarea>
             </mat-form-field>
           </div>
-          <div class="col">
-            <label>L'aidant restera pendant la séance</label>
-            <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
-              <mat-radio-button [value]="true">Oui</mat-radio-button>
-              <mat-radio-button [value]="false">Non</mat-radio-button>
-            </mat-radio-group>
-          </div>
         </div>
 
         <div class="row justify-content-center mt-2">
           <button type="button" color="primary" mat-raised-button (click)="dialogRef.close(false)">Annuler</button>
-          <button type="submit" color="primary" mat-raised-button (click)="submitted = true;">Confirmer</button>
+          <button type="submit" color="primary" mat-raised-button (click)="submitted = true;" class="ml-1">Confirmer</button>
         </div>
 
       </form>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import * as moment from 'moment';
-import { SeanceDto } from 'src/commons/dtos/seanceDto';
+import {SeanceDto} from 'src/commons/dtos/seanceDto';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {FormulaireComponent} from '../formulaire/formulaire.component';
 import DateUtil from '../../commons/utils/date-util';
@@ -13,7 +13,7 @@ import DateUtil from '../../commons/utils/date-util';
 })
 export class ReservationComponent implements OnInit {
 
-  startOfWeek: Date;  
+  startOfWeek: Date;
   endOfWeek: Date;
 
   jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
@@ -25,7 +25,7 @@ export class ReservationComponent implements OnInit {
     new SeanceDto('Après-midi 1', '13h30', '14h30'),
     new SeanceDto('Après-midi 2', '15h00', '16h00'),
     new SeanceDto('Après-midi 3', '16h30', '17h30')
-  ]
+  ];
 
   constructor(private dialog: MatDialog) {
   }
@@ -36,10 +36,6 @@ export class ReservationComponent implements OnInit {
   }
 
   debug(day, seance) {
-    // for (const day of this.getWeek()) {
-    //   console.log(day);
-    // }
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '50%';
     dialogConfig.width = '50%';
