@@ -21,6 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatRadioModule,
     MatCheckboxModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule
   ],
   providers: [],
   entryComponents: [FormulaireComponent],

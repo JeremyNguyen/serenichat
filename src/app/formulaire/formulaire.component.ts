@@ -15,10 +15,10 @@ export class FormulaireComponent implements OnInit {
   submitted = false;
   formulaireDto = new FormulaireDto();
   demiJournee = false;
+  checkboxConditions = false;
+  checkboxPrivacy = false;
 
   // TODO : price
-
-  // TODO : conditions
 
   constructor(public dialogRef: MatDialogRef<ReservationComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -35,6 +35,20 @@ export class FormulaireComponent implements OnInit {
     return DateUtil.getDate(date);
   }
 
+  getPrice() {
+    let price;
+    if (this.formulaireDto.seanceIndividuelle) {
+      price = this.demiJournee ? 130 : 45;
+    } else {
+      if (this.demiJournee) {
+        price = this.formulaireDto.nbVisiteur === 1 ? 75 : 140;
+      } else {
+        price = this.formulaireDto.nbVisiteur === 1 ? 30 : 60;
+      }
+    }
+    return price;
+  }
+
   seanceIndividuelleChange() {
     if (this.formulaireDto.seanceIndividuelle) {
       this.formulaireDto.nbVisiteur = 1;
@@ -44,7 +58,7 @@ export class FormulaireComponent implements OnInit {
 
   reserver(form: NgForm) {
     // TODO : calculer debut & fin
-    if (form.valid) {
+    if (form.valid && this.checkboxConditions && this.checkboxPrivacy) {
       // TODO : envoyer le form au back
       console.log(this.formulaireDto);
     }

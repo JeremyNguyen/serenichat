@@ -54,7 +54,8 @@
         <div class="row">
           <div class="col">
             <label>Je désire une séance individuelle :</label>
-            <mat-radio-group [(ngModel)]="formulaireDto.seanceIndividuelle" name="seanceIndividuelle" required (change)="seanceIndividuelleChange()">
+            <mat-radio-group [(ngModel)]="formulaireDto.seanceIndividuelle" name="seanceIndividuelle" required
+                             (change)="seanceIndividuelleChange()">
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>
             </mat-radio-group>
@@ -64,7 +65,8 @@
         <div class="row">
           <div class="col">
             <label>Nombre d'enfants :</label>
-            <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required [disabled]="formulaireDto.seanceIndividuelle">
+            <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required
+                             [disabled]="formulaireDto.seanceIndividuelle">
               <mat-radio-button [value]="1">1</mat-radio-button>
               <mat-radio-button [value]="2">2</mat-radio-button>
             </mat-radio-group>
@@ -105,9 +107,49 @@
           </div>
         </div>
 
+        <div class="row justify-content-center">
+          <mat-card class="col-10 mb-3 text-center">
+            <p>{{ getPrice() }} euros TTC (règlement sur place)</p>
+            <p>Rappel : la première séance est gratuite !</p>
+          </mat-card>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-checkbox
+              name="checkboxConditions"
+              color="accent"
+              [(ngModel)]="checkboxConditions">
+              En cochant cette case, je certifie que les personnes qui visiteront Séréni’chat ne sont pas allergiques
+              aux chats ni aux lapins.
+              Je certifie également avoir compris que même si tout contact est étroitement surveillé et qu’un incident
+              est hautement improbable,
+              nos boules de poils peuvent réagir au stress par une griffure ou morsure.
+              De notre côté, nous certifions que tous les habitants de Séréni’chat sont à jour dans leurs vaccins, anti
+              parasités et vermifugés.
+            </mat-checkbox>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-checkbox
+              name="checkboxPrivacy"
+              color="accent"
+              [(ngModel)]="checkboxPrivacy">
+              En cochant cette case, j'accepte que mes informations soient transmises à Séréni'chat à des fins
+              d'organisation des séances.
+            </mat-checkbox>
+            <mat-error *ngIf="submitted && (!checkboxPrivacy || !checkboxConditions)">Veuillez accepter les termes et
+              conditions
+            </mat-error>
+          </div>
+        </div>
+
         <div class="row justify-content-center mt-2">
           <button type="button" color="primary" mat-raised-button (click)="dialogRef.close(false)">Annuler</button>
-          <button type="submit" color="primary" mat-raised-button (click)="submitted = true;" class="ml-1">Confirmer</button>
+          <button type="submit" color="primary" mat-raised-button (click)="submitted = true;" class="ml-1">Confirmer
+          </button>
         </div>
 
       </form>

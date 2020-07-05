@@ -2,7 +2,15 @@ label.mat-form-field-label {
   font-family: 'grot', 'arial', sans-serif;
 }
 
+label .mat-checkbox-label {
+  font-family: 'grot', 'arial', sans-serif;
+}
+
 div.mat-radio-label-content {
+  font-family: 'grot', 'arial', sans-serif;
+}
+
+mat-card.mat-card {
   font-family: 'grot', 'arial', sans-serif;
 }
 
@@ -14,4 +22,13 @@ label.mat-radio-label {
   padding-top: .25em;
   word-break: break-word;
   white-space: normal;
+}
+
+.mat-checkbox .mat-checkbox-layout {
+  word-break: break-word;
+  white-space: normal;
+}
+
+div.mat-checkbox-inner-container {
+  margin-right: .75em;
 }

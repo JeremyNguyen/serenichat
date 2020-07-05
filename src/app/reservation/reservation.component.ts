@@ -37,8 +37,8 @@ export class ReservationComponent implements OnInit {
 
   debug(day, seance) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.height = '50%';
-    dialogConfig.width = '50%';
+    dialogConfig.height = '80%';
+    dialogConfig.width = '80%';
     dialogConfig.data = {day, seance};
 
     this.dialog.open(FormulaireComponent, dialogConfig);
