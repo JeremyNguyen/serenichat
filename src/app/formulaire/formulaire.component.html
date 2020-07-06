@@ -4,12 +4,13 @@
 
     <div class="jumbo-title">
       <div class="col">
-        Réserver pour le {{ getDate(data.day) }} :
+        Réserver pour le {{ getDate(seance.debut) }} :
       </div>
       <div class="col">
         <mat-radio-group [(ngModel)]="demiJournee" name="demiJournee" required class="title-radio">
           <mat-radio-button [value]="true">{{ getDemiJourneeLabel() }}</mat-radio-button>
-          <mat-radio-button [value]="false">séance de {{ data.seance.debut }} - {{ data.seance.fin }}</mat-radio-button>
+          <mat-radio-button [value]="false">séance de {{ getTime(seance.debut) }} - {{ getTime(seance.fin) }}
+          </mat-radio-button>
         </mat-radio-group>
       </div>
     </div>
@@ -55,6 +56,7 @@
           <div class="col">
             <label>Je désire une séance individuelle :</label>
             <mat-radio-group [(ngModel)]="formulaireDto.seanceIndividuelle" name="seanceIndividuelle" required
+                             [disabled]="seance.dispo === 'half'"
                              (change)="seanceIndividuelleChange()">
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>
@@ -66,7 +68,7 @@
           <div class="col">
             <label>Nombre d'enfants :</label>
             <mat-radio-group [(ngModel)]="formulaireDto.nbVisiteur" name="nbVisiteur" required
-                             [disabled]="formulaireDto.seanceIndividuelle">
+                             [disabled]="formulaireDto.seanceIndividuelle || seance.dispo === 'half'">
               <mat-radio-button [value]="1">1</mat-radio-button>
               <mat-radio-button [value]="2">2</mat-radio-button>
             </mat-radio-group>

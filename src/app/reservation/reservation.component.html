@@ -4,7 +4,8 @@
       La première séance d’une heure est gratuite.
       Nos tarifs :
       Séance d’une heure classique 30 euros.
-      Séance personnalisée 45 euros. Vous pourrez préciser lors de la réservation d’un créneau libre que vous le voulez non partagé.
+      Séance personnalisée 45 euros. Vous pourrez préciser lors de la réservation d’un créneau libre que vous le voulez
+      non partagé.
       Demi journée 75 euros (4h à 25 euros dont une offerte). Demi journée individuelle 130 euros.
     </div>
   </div>
@@ -15,15 +16,15 @@
     <mat-icon (click)="addDays(-7)">keyboard_arrow_left</mat-icon>
   </div>
   <div class="col-1">
-  <mat-icon (click)="addDays(7)">keyboard_arrow_right</mat-icon>  
+    <mat-icon (click)="addDays(7)">keyboard_arrow_right</mat-icon>
   </div>
 </div>
 
 <table>
   <thead>
   <tr>
-    <th></th>
-    <th *ngFor="let day of getWeek()" class="text-center">
+    <th id="seance"></th>
+    <th *ngFor="let day of week" class="text-center" [id]="day.getDay()">
       <span class="long">{{ getDay(day.getDay(), false) }}</span>
       <span class="short">{{ getDay(day.getDay(), true) }}</span>
       <span class="day">{{ getDate(day) }}</span>
@@ -31,11 +32,16 @@
   </tr>
   </thead>
   <tbody>
-  <ng-container *ngFor="let seance of seances">
-  <tr>
-    <td class="hour"><span>{{ seance.libelle }}</span></td>
-    <td *ngFor="let day of getWeek()" (click)="debug(day, seance)"></td>
-  </tr>
-</ng-container>
+    <tr *ngFor="let libelle of seancesLibelles; let i = index">
+      <td class="hour"><span>{{ libelle }}</span></td>
+      <td *ngFor="let seance of getSeancesByIndex(i)" (click)="reserver(seance)" [class]="seance.dispo"></td>
+    </tr>
   </tbody>
 </table>
+
+<div class="row justify-content-start legende">
+  <div class="col-1 empty-color">Libre</div>
+  <div class="col-1 half-color">Partagée</div>
+  <div class="col-1 full-color">Complète</div>
+  <div class="col-1 closed-color">Fermé</div>
+</div>

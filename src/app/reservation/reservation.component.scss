@@ -1,114 +1,103 @@
-$blue: #626E7E;
-$light: lighten($blue, 40%);
-$light2: darken($light, 3%);
-table{
-  font-family:sans-serif;
+@import "/~src/assets/style/colors";
+
+table {
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
   table-layout: fixed;
   margin-bottom: 50px;
-  thead{
-    tr{
-      th{
+  thead {
+    tr {
+      th {
         background: $blue;
         color: $light;
         padding: 0.5em;
         overflow: hidden;
-        &:first-child{
-          border-radius:3px 0 0 0;
-         }
-        &:last-child{
-          border-radius:0 3px 0 0;
-         }
-        .day{
+        &:first-child {
+          border-radius: 3px 0 0 0;
+        }
+        &:last-child {
+          border-radius: 0 3px 0 0;
+        }
+        .day {
           display: block;
           font-size: 1.2em;
           border-radius: 50%;
           height: 30px;
           margin: 0 auto 5px;
           line-height: 1.8;
-          &.active{
+          &.active {
             background: $light;
             color: $blue;
-           }
-         }
-        .short{
+          }
+        }
+        .short {
           display: none;
-         }
-        i{
-          vertical-align: middle;
-          font-size: 2em;
-         }
-       }
-     }
-   }
-  tbody{
-    tr{
-      background: $light;
-        td{
-          border-bottom:1px solid $blue;
-         }
-       
-      td{
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        border-bottom: 1px solid $blue;
         text-align: center;
         vertical-align: middle;
         border-left: 1px solid $blue;
         position: relative;
         height: 32px;
-        cursor: pointer;
-        &:last-child{
-          border-right:1px solid $blue;
-         }
-        &.hour{
+        &:last-child {
+          border-right: 1px solid $blue;
+        }
+        &.hour {
           font-size: 1em;
           padding: 0;
           color: $blue;
-          background:#fff;
-          border-bottom:1px solid $blue;
+          background: #fff;
+          border-bottom: 1px solid $blue;
           border-collapse: separate;
           min-width: 100px;
           cursor: default;
-          span{
+          span {
             display: block;
-           }
-         }
-       }
-     }
-   }
-  @media(max-width:60em){
-    thead{
-      tr{
-        th{
-          .long{
+          }
+        }
+      }
+    }
+  }
+  @media(max-width: 60em) {
+    thead {
+      tr {
+        th {
+          .long {
             display: none;
-           }
-          .short{
+          }
+          .short {
             display: block;
-           }
-         }
-       }
-     }
-    tbody{
-      tr{
-        td{
-          &.hour{
-            span{
-              transform:rotate(270deg);
-              -webkit-transform:rotate(270deg);
-              -moz-transform:rotate(270deg);
-             }
-           }
-         }
-       }
-     }
-   }
-  @media(max-width:27em){
-    thead{
-      tr{
-        th{
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          &.hour {
+            span {
+              transform: rotate(270deg);
+              -webkit-transform: rotate(270deg);
+              -moz-transform: rotate(270deg);
+            }
+          }
+        }
+      }
+    }
+  }
+  @media(max-width: 27em) {
+    thead {
+      tr {
+        th {
           font-size: 65%;
-          .day{
+          .day {
             display: block;
             font-size: 1.2em;
             border-radius: 50%;
@@ -116,30 +105,72 @@ table{
             height: 20px;
             margin: 0 auto 5px;
             padding: 5px;
-            &.active{
+            &.active {
               background: $light;
               color: $blue;
-             }
-           }
-         }
-       }
-     }
-    tbody{
-      tr{
-        td{
-          &.hour{
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          &.hour {
             font-size: .7em;
-            span{
-              transform:translateY(16px)rotate(270deg);
-              -webkit-transform:translateY(16px)rotate(270deg);
-              -moz-transform:translateY(16px)rotate(270deg);
-             }
-           }
-         }
-       }
-     }
-   }
+            span {
+              transform: translateY(16px) rotate(270deg);
+              -webkit-transform: translateY(16px) rotate(270deg);
+              -moz-transform: translateY(16px) rotate(270deg);
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
 .mat-icon {
-  cursor:pointer;
+  cursor: pointer;
+}
+
+.closed-color {
+  background: $light;
+}
+
+.full-color {
+  background: $full-color;
+}
+
+.empty-color {
+  background: $empty-color;
+}
+
+.half-color {
+  background: $half-color;
+}
+
+.closed {
+  @extend .closed-color;
+}
+
+.full {
+  @extend .full-color;
+}
+
+.empty {
+  cursor: pointer;
+  @extend .empty-color;
+}
+
+.half {
+  cursor: pointer;
+  @extend .half-color;
+}
+
+.legende {
+  display: flex;
+  div {
+    min-width: 100px;
+  }
 }

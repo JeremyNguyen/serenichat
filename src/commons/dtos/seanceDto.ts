@@ -1,11 +1,11 @@
 export class SeanceDto {
 
-  libelle: string;
-  debut: string;
-  fin: string;
+  dispo: string;
+  debut: Date;
+  fin: Date;
 
-  constructor(libelle: string, debut: string, fin: string) {
-    this.libelle = libelle;
+  constructor(dispo: string, debut: Date, fin: Date) {
+    this.dispo = dispo;
     this.debut = debut;
     this.fin = fin;
   }

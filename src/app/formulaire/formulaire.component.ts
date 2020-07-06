@@ -4,6 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import DateUtil from '../../commons/utils/date-util';
 import {NgForm} from '@angular/forms';
 import {FormulaireDto} from '../../commons/dtos/formulaireDto';
+import {SeanceDto} from '../../commons/dtos/seanceDto';
 
 @Component({
   selector: 'app-formulaire',
@@ -17,22 +18,26 @@ export class FormulaireComponent implements OnInit {
   demiJournee = false;
   checkboxConditions = false;
   checkboxPrivacy = false;
-
-  // TODO : price
+  seance: SeanceDto;
 
   constructor(public dialogRef: MatDialogRef<ReservationComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit(): void {
+    this.seance = this.data.seance;
   }
 
   getDemiJourneeLabel() {
-    return this.data.seance.libelle.startsWith('Après') ? 'après-midi complète (14h00 - 18h00)' : 'matinée complète (9h00 - 13h00)';
+    return this.seance.debut.getHours() >= 13 ? 'après-midi complète (14h00 - 18h00)' : 'matinée complète (9h00 - 13h00)';
   }
 
   getDate(date: Date) {
     return DateUtil.getDate(date);
+  }
+
+  getTime(date: Date) {
+    return DateUtil.getTime(date);
   }
 
   getPrice() {
@@ -57,9 +62,8 @@ export class FormulaireComponent implements OnInit {
   }
 
   reserver(form: NgForm) {
-    // TODO : calculer debut & fin
     if (form.valid && this.checkboxConditions && this.checkboxPrivacy) {
-      // TODO : envoyer le form au back
+      // TODO : envoyer le form au back + la seance
       console.log(this.formulaireDto);
     }
   }
