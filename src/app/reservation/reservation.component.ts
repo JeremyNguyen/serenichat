@@ -5,6 +5,8 @@ import {SeanceDto} from 'src/commons/dtos/seanceDto';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {FormulaireComponent} from '../formulaire/formulaire.component';
 import DateUtil from '../../commons/utils/date-util';
+import {ReservationService} from '../../commons/services/reservation.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-reservation',
@@ -16,9 +18,10 @@ export class ReservationComponent implements OnInit {
   startOfWeek: Date;
   endOfWeek: Date;
   week = [];
+  seances = [[], [], [], [], [], [], []];
+  reservations = [];
 
   jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-
   seancesLibelles = [
     'Matin 1',
     'Matin 2',
@@ -28,9 +31,9 @@ export class ReservationComponent implements OnInit {
     'Après-midi 3'
   ];
 
-  seances = [[], [], [], [], [], [], []];
-
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private reservationService: ReservationService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -54,17 +57,22 @@ export class ReservationComponent implements OnInit {
   }
 
   refreshWeek() {
-    this.week = [];
-    this.seances = [[], [], [], [], [], [], []];
-    this.getDispos(this.startOfWeek, this.endOfWeek);
-    // TODO : after getDispos return
-    for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
-      const day = moment(this.startOfWeek).add(dayIndex, 'd').toDate();
-      this.week.push(day);
-      for (let seanceIndex = 0; seanceIndex < this.seancesLibelles.length; seanceIndex++) {
-        this.seances[dayIndex][seanceIndex] = this.initSeance(day, seanceIndex);
-      }
-    }
+    this.reservationService.getReservations(this.startOfWeek, this.endOfWeek).subscribe(
+      reservations => {
+        this.reservations = reservations;
+        this.week = [];
+        this.seances = [[], [], [], [], [], [], []];
+        for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
+          const day = moment(this.startOfWeek).add(dayIndex, 'd').toDate();
+          this.week.push(day);
+          for (let seanceIndex = 0; seanceIndex < this.seancesLibelles.length; seanceIndex++) {
+            this.seances[dayIndex][seanceIndex] = this.initSeance(day, seanceIndex);
+          }
+        }
+      },
+      error => {
+        this.snackBar.open(error.message, 'Fermer');
+      });
   }
 
   getCreneauxByIndexSeance(index: number) {
@@ -85,6 +93,9 @@ export class ReservationComponent implements OnInit {
   }
 
   getSeancesByIndex(index: number) {
+    if (!this.seances.length) {
+      return [];
+    }
     return this.seances.map(seancesForDay => seancesForDay[index]);
   }
 
@@ -94,21 +105,17 @@ export class ReservationComponent implements OnInit {
     debut.setHours(creneau.debutHour, creneau.debutMin, 0, 0);
     const fin = new Date(day.getTime());
     fin.setHours(creneau.finHour, creneau.finMin, 0, 0);
-    const dispo = this.setDispo(debut, fin, indexSeance);
+    const dispo = this.setDispo(debut, fin);
     return new SeanceDto(dispo, debut, fin);
   }
 
-  setDispo(debut: Date, fin: Date, indexSeance) {
+  setDispo(debut: Date, fin: Date) {
     if (debut.getDay() === 0 || debut.getDay() === 1) {
       return 'closed';
     }
-    // TODO
+    // TODO /!\ demi journee lock les autres
     const dispos = ['full', 'empty', 'half'];
     return dispos[Math.floor(Math.random() * dispos.length)];
-  }
-
-  private getDispos(startOfWeek: Date, endOfWeek: Date) {
-    // TODO
   }
 
   reserver(seance) {
@@ -117,7 +124,12 @@ export class ReservationComponent implements OnInit {
       dialogConfig.height = '80%';
       dialogConfig.width = '80%';
       dialogConfig.data = {seance};
-      this.dialog.open(FormulaireComponent, dialogConfig);
+      const matDialogRef = this.dialog.open(FormulaireComponent, dialogConfig);
+      matDialogRef.afterClosed().subscribe(value => {
+        if (value) {
+          this.refreshWeek();
+        }
+      });
     }
   }
 }

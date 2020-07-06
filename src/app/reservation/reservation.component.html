@@ -34,7 +34,7 @@
   <tbody>
     <tr *ngFor="let libelle of seancesLibelles; let i = index">
       <td class="hour"><span>{{ libelle }}</span></td>
-      <td *ngFor="let seance of getSeancesByIndex(i)" (click)="reserver(seance)" [class]="seance.dispo"></td>
+      <td *ngFor="let seance of getSeancesByIndex(i)" (click)="reserver(seance)" [class]="seance?.dispo"></td>
     </tr>
   </tbody>
 </table>

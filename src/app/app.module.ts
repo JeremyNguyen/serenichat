@@ -22,6 +22,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { MatCardModule } from '@angular/material/card';
     MatCheckboxModule,
     MatInputModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [FormulaireComponent],

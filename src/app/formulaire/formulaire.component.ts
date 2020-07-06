@@ -5,6 +5,8 @@ import DateUtil from '../../commons/utils/date-util';
 import {NgForm} from '@angular/forms';
 import {FormulaireDto} from '../../commons/dtos/formulaireDto';
 import {SeanceDto} from '../../commons/dtos/seanceDto';
+import {ReservationService} from '../../commons/services/reservation.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formulaire',
@@ -21,7 +23,9 @@ export class FormulaireComponent implements OnInit {
   seance: SeanceDto;
 
   constructor(public dialogRef: MatDialogRef<ReservationComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private reservationService: ReservationService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -63,8 +67,14 @@ export class FormulaireComponent implements OnInit {
 
   reserver(form: NgForm) {
     if (form.valid && this.checkboxConditions && this.checkboxPrivacy) {
-      // TODO : envoyer le form au back + la seance
-      console.log(this.formulaireDto);
+      this.reservationService.reserver(this.seance, this.formulaireDto).subscribe(
+        () => {
+          this.snackBar.open('Votre réservation a été envoyée. Vous allez recevoir une confirmation par mail.', 'Fermer');
+          this.dialogRef.close(true);
+        },
+        error => {
+          this.snackBar.open(error.message, 'Fermer');
+        });
     }
   }
 }
