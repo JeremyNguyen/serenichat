@@ -49,7 +49,7 @@ export class FormulaireComponent implements OnInit {
   getPrice() {
     let price;
     if (this.formulaireDto.seanceIndividuelle) {
-      price = this.demiJournee ? 130 : 45;
+      price = this.demiJournee ? 120 : 45;
     } else {
       if (this.demiJournee) {
         price = this.formulaireDto.nbVisiteur === 1 ? 75 : 140;
