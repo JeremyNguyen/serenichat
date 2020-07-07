@@ -30,6 +30,8 @@ export class FormulaireComponent implements OnInit {
 
   ngOnInit(): void {
     this.seance = this.data.seance;
+    this.demiJournee = this.seance.dispo === 'half-day';
+    this.setHoraires();
   }
 
   getDemiJourneeLabel() {
@@ -65,9 +67,25 @@ export class FormulaireComponent implements OnInit {
     }
   }
 
+  setHoraires() {
+    if (this.demiJournee) {
+      const debut = new Date(this.seance.debut.getTime());
+      const fin = new Date(this.seance.debut.getTime());
+      debut.setHours(this.seance.debut.getHours() < 13 ? 9 : 14);
+      fin.setHours(this.seance.debut.getHours() < 13 ? 13 : 18);
+      debut.setMinutes(0);
+      fin.setMinutes(0);
+      this.formulaireDto.debut = debut;
+      this.formulaireDto.fin = fin;
+    } else {
+      this.formulaireDto.debut = this.seance.debut;
+      this.formulaireDto.fin = this.seance.fin;
+    }
+  }
+
   reserver(form: NgForm) {
     if (form.valid && this.checkboxConditions && this.checkboxPrivacy) {
-      this.reservationService.reserver(this.seance, this.formulaireDto).subscribe(
+      this.reservationService.reserver(this.formulaireDto).subscribe(
         () => {
           this.snackBar.open('Votre réservation a été envoyée. Vous allez recevoir une confirmation par mail.', 'Fermer');
           this.dialogRef.close(true);

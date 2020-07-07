@@ -146,8 +146,12 @@ table {
   background: $empty-color;
 }
 
-.half-color {
-  background: $half-color;
+.half-hour-color {
+  background: $half-hour-color;
+}
+
+.half-day-color {
+  background: $half-day-color;
 }
 
 .closed {
@@ -163,14 +167,19 @@ table {
   @extend .empty-color;
 }
 
-.half {
+.half-day {
   cursor: pointer;
-  @extend .half-color;
+  @extend .half-day-color;
+}
+
+.half-hour {
+  cursor: pointer;
+  @extend .half-hour-color;
 }
 
 .legende {
   display: flex;
   div {
-    min-width: 100px;
+    min-width: 175px;
   }
 }

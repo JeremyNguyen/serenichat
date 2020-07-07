@@ -110,20 +110,29 @@ export class ReservationComponent implements OnInit {
   }
 
   setDispo(debut: Date, fin: Date) {
+    // TODO
     if (debut.getDay() === 0 || debut.getDay() === 1) {
       return 'closed';
     }
-    // TODO /!\ demi journee lock les autres
-    const dispos = ['full', 'empty', 'half'];
+    const dispos = ['full', 'empty', 'half-hour', 'half-day'];
     return dispos[Math.floor(Math.random() * dispos.length)];
+  }
+
+  private isDemiJourneePossible(seance: SeanceDto) {
+    const dayOfSeance = seance.debut.getDay() - 1;
+    const seancesOfDay = this.seances[dayOfSeance];
+    const isMatinee = seance.debut.getHours() < 13;
+    const seancesOfDemi = isMatinee ? seancesOfDay.slice(0, 3) : seancesOfDay.slice(3, 6);
+    return seancesOfDemi.every((s: SeanceDto) => s.dispo === 'empty') || seancesOfDemi.every((s: SeanceDto) => s.dispo === 'half-day');
   }
 
   reserver(seance) {
     if (seance.dispo !== 'closed' && seance.dispo !== 'full') {
+      const demiJourneePossible = this.isDemiJourneePossible(seance);
       const dialogConfig = new MatDialogConfig();
       dialogConfig.height = '80%';
       dialogConfig.width = '80%';
-      dialogConfig.data = {seance};
+      dialogConfig.data = {seance, demiJourneePossible};
       const matDialogRef = this.dialog.open(FormulaireComponent, dialogConfig);
       matDialogRef.afterClosed().subscribe(value => {
         if (value) {

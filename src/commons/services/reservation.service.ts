@@ -28,9 +28,8 @@ export class ReservationService {
     return this.httpClient.get<any[]>(this.URL_RESERVATIONS, {headers: this.HEADERS, params});*/
   }
 
-  reserver(seance: SeanceDto, formulaire: FormulaireDto) {
+  reserver( formulaire: FormulaireDto) {
     // TODO
-    console.log(seance);
     console.log(formulaire);
     return new Observable((observer) => {
       observer.next([]);

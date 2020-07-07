@@ -1,6 +1,6 @@
 export class FormulaireDto {
-  debut: any;
-  fin: any;
+  debut: Date;
+  fin: Date;
   seanceIndividuelle = false;
   nbVisiteur = 1;
   nomAidant: string;
