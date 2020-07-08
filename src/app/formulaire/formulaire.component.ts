@@ -85,6 +85,7 @@ export class FormulaireComponent implements OnInit {
 
   reserver(form: NgForm) {
     if (form.valid && this.checkboxConditions && this.checkboxPrivacy) {
+      this.formulaireDto.prix = this.getPrice();
       this.reservationService.reserver(this.formulaireDto).subscribe(
         () => {
           this.snackBar.open('Votre réservation a été envoyée. Vous allez recevoir une confirmation par mail.', 'Fermer');

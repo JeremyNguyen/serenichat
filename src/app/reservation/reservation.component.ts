@@ -7,6 +7,7 @@ import {FormulaireComponent} from '../formulaire/formulaire.component';
 import DateUtil from '../../commons/utils/date-util';
 import {ReservationService} from '../../commons/services/reservation.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {CreneauDto} from '../../commons/dtos/creneauDto';
 
 @Component({
   selector: 'app-reservation',
@@ -19,7 +20,7 @@ export class ReservationComponent implements OnInit {
   endOfWeek: Date;
   week = [];
   seances = [[], [], [], [], [], [], []];
-  reservations = [];
+  creneaux: CreneauDto[] = [];
 
   jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
   seancesLibelles = [
@@ -58,8 +59,8 @@ export class ReservationComponent implements OnInit {
 
   refreshWeek() {
     this.reservationService.getReservations(this.startOfWeek, this.endOfWeek).subscribe(
-      reservations => {
-        this.reservations = reservations;
+      (reservations: CreneauDto[]) => {
+        this.creneaux = reservations;
         this.week = [];
         this.seances = [[], [], [], [], [], [], []];
         for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
@@ -105,17 +106,31 @@ export class ReservationComponent implements OnInit {
     debut.setHours(creneau.debutHour, creneau.debutMin, 0, 0);
     const fin = new Date(day.getTime());
     fin.setHours(creneau.finHour, creneau.finMin, 0, 0);
-    const dispo = this.setDispo(debut, fin);
+    const dispo = this.setDispo(moment(debut), moment(fin));
     return new SeanceDto(dispo, debut, fin);
   }
 
-  setDispo(debut: Date, fin: Date) {
-    // TODO
-    if (debut.getDay() === 0 || debut.getDay() === 1) {
+  setDispo(debut: moment.Moment, fin: moment.Moment) {
+    if (debut.day() === 0 || debut.day() === 1) {
       return 'closed';
     }
-    const dispos = ['full', 'empty', 'half-hour', 'half-day'];
-    return dispos[Math.floor(Math.random() * dispos.length)];
+    for (const creneau of this.creneaux) {
+      const debutCreneau = moment(creneau.debut);
+      const finCreneau = moment(creneau.fin);
+      const isCreneauDemiJournee = finCreneau.hours() - debutCreneau.hours() > 1;
+      if (debut.hours() === 13 && debut.minutes() === 30) {
+        debut.add(30, 'm');
+      }
+      if (debutCreneau.isSameOrBefore(debut) && finCreneau.isSameOrAfter(fin)) {
+        if (creneau.placesOccupees === 2 || creneau.seanceIndividuelle) {
+          return 'full';
+        }
+        if (creneau.placesOccupees === 1) {
+          return isCreneauDemiJournee ? 'half-day' : 'half-hour';
+        }
+      }
+    }
+    return 'empty';
   }
 
   private isDemiJourneePossible(seance: SeanceDto) {

@@ -11,4 +11,5 @@ export class FormulaireDto {
   prenomVisiteur2: string;
   accompagnementVisiteur = false;
   commentaire: string;
+  prix: number;
 }
