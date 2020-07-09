@@ -79,13 +79,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Prénom visiteur {{ formulaireDto.nbVisiteur === 2 ? '1' : '' }}</mat-label>
+              <mat-label>Prénom enfant {{ formulaireDto.nbVisiteur === 2 ? '1' : '' }}</mat-label>
               <input matInput [(ngModel)]="formulaireDto.prenomVisiteur1" name="prenomVisiteur1" required>
             </mat-form-field>
           </div>
           <div class="col" *ngIf="formulaireDto.nbVisiteur === 2">
             <mat-form-field class="w-100">
-              <mat-label>Prénom visiteur 2</mat-label>
+              <mat-label>Prénom enfant 2</mat-label>
               <input matInput [(ngModel)]="formulaireDto.prenomVisiteur2" name="prenomVisiteur2" required>
             </mat-form-field>
           </div>
@@ -93,7 +93,7 @@
 
         <div class="row">
           <div class="col">
-            <label>L'aidant restera pendant la séance :</label>
+            <label>L'accompagnant restera pendant la séance :</label>
             <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>
@@ -104,7 +104,7 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Exemples de commentaires</mat-label>
+              <mat-label>Informations supplémentaires (ex : peur des animaux, hypo/hypersensibilité, conseils en cas de crise...)</mat-label>
               <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire"></textarea>
             </mat-form-field>
           </div>
@@ -126,8 +126,7 @@
               En cochant cette case, je certifie que les personnes qui visiteront Séréni’chat ne sont pas allergiques
               aux chats ni aux lapins.
               Je certifie également avoir compris que même si tout contact est étroitement surveillé et qu’un incident
-              est hautement improbable,
-              nos boules de poils peuvent réagir au stress par une griffure ou morsure.
+              est hautement improbable, nos boules de poils peuvent réagir au stress par une griffure ou morsure.
               De notre côté, nous certifions que tous les habitants de Séréni’chat sont à jour dans leurs vaccins, anti
               parasités et vermifugés.
             </mat-checkbox>
