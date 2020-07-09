@@ -38,9 +38,15 @@
       </div>
     </div>
   </div>
-
-  <div class="row text-center pb-5 justify-content-center mt-5">
-    <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/LuluTokyotxt.png" alt="lapines"></div>
-    <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/tripléstxt.jpg" alt="triplés"></div>
-    <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/3axostxt.png" alt="axos"></div>
+<div class="row justify-content-center pt-5">
+  <div class="diaporama">
+    <img class="image-diaporama" *ngFor="let image of images; let i = index;" [src]="image.image" [alt]="image.alt" (click)="showLightbox(i)">
   </div>
+</div>
+
+<ng-image-fullscreen-view
+  [images]="images"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()">
+</ng-image-fullscreen-view>

@@ -1,7 +1,11 @@
 .logo-cat{
   width: 120px;
 }
-.local {
+
+img.image-diaporama {
+  cursor: pointer;
   max-width: 75%;
   max-height: 75%;
+  padding: 5px;
+  border-radius: 10px;
 }

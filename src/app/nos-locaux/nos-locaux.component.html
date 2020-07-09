@@ -7,19 +7,18 @@
     <div>-Le local est accessible aux personnes à mobilité réduite-</div>
   </div>
 
-  <div>
-      <div class="row text-center pb-5 justify-content-center mt-5">
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/local global.jpg" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/Branzoé.jpg" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/LuluTokyo2.png" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/LuluTokyo3.png" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/triplés2.jpg" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/axo.jpg" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/salle 1.jpg" alt="local"></div>
-        <div class="col"><img class="img-rounded-corners local2" src="../../assets/images/salle2.jpg" alt="local"></div>
-      </div>
+<div class="row justify-content-center pt-4 pb-4">
+  <div class="diaporama">
+    <img class="image-diaporama" *ngFor="let image of images; let i = index;" [src]="image.image" [alt]="image.alt" (click)="showLightbox(i)">
   </div>
 </div>
+
+<ng-image-fullscreen-view
+  [images]="images"
+  [imageIndex]="selectedImageIndex"
+  [show]="showFlag"
+  (close)="closeEventHandler()">
+</ng-image-fullscreen-view>
 
 <div class="text-big">
 <div class="color-peche-foncee text-center">
