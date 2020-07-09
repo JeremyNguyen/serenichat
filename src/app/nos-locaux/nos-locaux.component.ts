@@ -20,8 +20,8 @@ export class NosLocauxComponent implements OnInit {
       alt: 'Bran'
     },
     {
-      image: '../../assets/images/LuluTokyo2.png',
-      alt: 'lapines1'
+      image: '../../assets/images/triplésarbre.jpg',
+      alt: 'triplés arbre'
     },
     {
       image: '../../assets/images/LuluTokyo3.png',
