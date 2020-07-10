@@ -122,10 +122,10 @@ export class ReservationComponent implements OnInit {
         debut.add(30, 'm');
       }
       if (debutCreneau.isSameOrBefore(debut) && finCreneau.isSameOrAfter(fin)) {
-        if (creneau.placesOccupees === 2 || creneau.seanceIndividuelle) {
+        if (creneau.nbVisiteur === 2 || creneau.seanceIndividuelle) {
           return 'full';
         }
-        if (creneau.placesOccupees === 1) {
+        if (creneau.nbVisiteur === 1) {
           return isCreneauDemiJournee ? 'half-day' : 'half-hour';
         }
       }

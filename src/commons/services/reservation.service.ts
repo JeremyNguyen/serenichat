@@ -18,49 +18,12 @@ export class ReservationService {
   }
 
   getReservations(start: Date, end: Date): Observable<CreneauDto[]> {
-    // TODO
-    return new Observable((observer) => {
-
-      const creneau1 = new CreneauDto();
-      const creneau2 = new CreneauDto();
-      const creneau3 = new CreneauDto();
-      const creneau4 = new CreneauDto();
-
-      creneau1.placesOccupees = 2;
-      creneau1.debut = new Date(2020, 6, 7, 9, 0, 0);
-      creneau1.fin = new Date(2020, 6, 7, 10, 0, 0);
-
-      creneau2.placesOccupees = 2;
-      creneau2.debut = new Date(2020, 6, 8, 14, 0, 0);
-      creneau2.fin = new Date(2020, 6, 8, 18, 0, 0);
-
-      creneau3.placesOccupees = 1;
-      creneau3.seanceIndividuelle = false;
-      creneau3.debut = new Date(2020, 6, 9, 9, 0, 0);
-      creneau3.fin = new Date(2020, 6, 9, 13, 0, 0);
-
-      creneau4.placesOccupees = 1;
-      creneau4.seanceIndividuelle = false;
-      creneau4.debut = new Date(2020, 6, 11, 10, 30, 0);
-      creneau4.fin = new Date(2020, 6, 11, 11, 30, 0);
-
-      observer.next([creneau1, creneau2, creneau3, creneau4]);
-      observer.complete();
-    });
-/*    const params = new HttpParams();
-    params.set('start', start.toString());
-    params.set('end', end.toString());
-    return this.httpClient.get<CreneauDto[]>(this.URL_RESERVATIONS, {headers: this.HEADERS, params});*/
+    const params = new HttpParams().set('start', start.toString()).set('end', end.toString());
+    return this.httpClient.get<CreneauDto[]>(this.URL_RESERVATIONS, {headers: this.HEADERS, params});
   }
 
   reserver(formulaire: FormulaireDto) {
-    // TODO
-    console.log(formulaire);
-    return new Observable((observer) => {
-      observer.next([]);
-      observer.complete();
-    });
-    // return this.httpClient.post(this.URL_RESERVATIONS, formulaire, {headers: this.HEADERS});
+    return this.httpClient.post(this.URL_RESERVATIONS, formulaire, {headers: this.HEADERS});
   }
 
 }

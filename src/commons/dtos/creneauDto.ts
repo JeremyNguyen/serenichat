@@ -1,6 +1,6 @@
 
 export class CreneauDto {
-  placesOccupees: number;
+  nbVisiteur: number;
   seanceIndividuelle: boolean;
   debut: Date;
   fin: Date;
