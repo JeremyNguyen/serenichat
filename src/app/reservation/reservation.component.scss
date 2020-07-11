@@ -1,17 +1,19 @@
 @import "/~src/assets/style/colors";
 
 table {
+  cursor: default;
   width: 100%;
+  min-width: 300px;
   border-spacing: 0;
   border-collapse: separate;
   table-layout: fixed;
   margin-bottom: 50px;
+  color: $blue;
   thead {
     tr {
       th {
         background: $blue;
         color: $light;
-        padding: 0.5em;
         overflow: hidden;
         &:first-child {
           border-radius: 3px 0 0 0;
@@ -19,114 +21,62 @@ table {
         &:last-child {
           border-radius: 0 3px 0 0;
         }
-        .day {
+        .date {
           display: block;
-          font-size: 1.2em;
           border-radius: 50%;
           height: 30px;
-          margin: 0 auto 5px;
-          line-height: 1.8;
-          &.active {
-            background: $light;
-            color: $blue;
-          }
-        }
-        .short {
-          display: none;
         }
       }
     }
   }
   tbody {
     tr {
+      height: 65px;
       td {
         border-bottom: 1px solid $blue;
         text-align: center;
         vertical-align: middle;
         border-left: 1px solid $blue;
         position: relative;
-        height: 32px;
         &:last-child {
           border-right: 1px solid $blue;
         }
-        &.hour {
-          font-size: 1em;
-          padding: 0;
-          color: $blue;
-          background: #fff;
-          border-bottom: 1px solid $blue;
-          border-collapse: separate;
-          min-width: 100px;
-          cursor: default;
-          span {
-            display: block;
-          }
-        }
       }
     }
   }
-  @media(max-width: 60em) {
-    thead {
-      tr {
-        th {
-          .long {
-            display: none;
-          }
-          .short {
-            display: block;
-          }
-        }
-      }
-    }
-    tbody {
-      tr {
-        td {
-          &.hour {
-            span {
-              transform: rotate(270deg);
-              -webkit-transform: rotate(270deg);
-              -moz-transform: rotate(270deg);
-            }
-          }
-        }
-      }
-    }
+}
+
+.short {
+  display: none;
+}
+
+@media(max-width: 70em) {
+  .short {
+    display: block;
   }
-  @media(max-width: 27em) {
-    thead {
-      tr {
-        th {
-          font-size: 65%;
-          .day {
-            display: block;
-            font-size: 1.2em;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            margin: 0 auto 5px;
-            padding: 5px;
-            &.active {
-              background: $light;
-              color: $blue;
-            }
-          }
-        }
-      }
-    }
-    tbody {
-      tr {
-        td {
-          &.hour {
-            font-size: .7em;
-            span {
-              transform: translateY(16px) rotate(270deg);
-              -webkit-transform: translateY(16px) rotate(270deg);
-              -moz-transform: translateY(16px) rotate(270deg);
-            }
-          }
-        }
-      }
-    }
+  .long {
+    display: none;
+  }
+}
+
+@media(max-width: 40em) {
+  span.date {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 13px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+  }
+  span.short {
+    display: none;
+  }
+  .seance span {
+    display: block;
+    font-size: 13px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
   }
 }
 

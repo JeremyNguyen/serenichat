@@ -20,24 +20,28 @@
   </div>
 </div>
 
-<table>
-  <thead>
-  <tr>
-    <th id="seance"></th>
-    <th *ngFor="let day of week" class="text-center" [id]="day.getDay()">
-      <span class="long">{{ getDay(day.getDay(), false) }}</span>
-      <span class="short">{{ getDay(day.getDay(), true) }}</span>
-      <span class="day">{{ getDate(day) }}</span>
-    </th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="row justify-content-center">
+  <table>
+    <thead>
+    <tr>
+      <th id="seance"></th>
+      <th *ngFor="let day of week" class="text-center" [id]="day.getDay()">
+        <div class="day">
+          <span class="long">{{ getDay(day.getDay(), false) }}</span>
+          <span class="short">{{ getDay(day.getDay(), true) }}</span>
+          <span class="date">{{ getDate(day) }}</span>
+        </div>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let libelle of seancesLibelles; let i = index">
-      <td class="hour"><span>{{ libelle }}</span></td>
+      <td class="seance"><span>{{ libelle }}</span></td>
       <td *ngFor="let seance of getSeancesByIndex(i)" (click)="reserver(seance)" [class]="seance?.dispo"></td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <div class="row justify-content-start legende">
   <div class="col-2 empty-color">2/2 places libres</div>
