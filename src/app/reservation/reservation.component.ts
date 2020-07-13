@@ -122,6 +122,9 @@ export class ReservationComponent implements OnInit {
         debut.add(30, 'm');
       }
       if (debutCreneau.isSameOrBefore(debut) && finCreneau.isSameOrAfter(fin)) {
+        if (creneau.ferme) {
+          return 'closed';
+        }
         if (creneau.nbVisiteur === 2 || creneau.seanceIndividuelle) {
           return 'full';
         }
