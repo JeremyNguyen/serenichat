@@ -22,6 +22,10 @@ export class NosPensionnairesComponent implements OnInit {
     {
       image: '../../assets/images/3axostxt.png',
       alt: 'axos'
+    },
+    {
+      image: '../../assets/images/régatetxt.jpg',
+      alt: 'regate'
     }
   ];
 
