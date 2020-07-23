@@ -34,6 +34,11 @@ export class NosLocauxComponent implements OnInit {
     {
       image: '../../assets/images/axo.jpg',
       alt: 'axo'
+    },
+    {
+      thumbImage: '../../assets/images/thumbnsalle.png',
+      video: '../../assets/video/sansson.mp4',
+      alt: 'salle senso'
     }
   ];
 
@@ -52,3 +57,4 @@ export class NosLocauxComponent implements OnInit {
     this.selectedImageIndex = -1;
   }
 }
+
