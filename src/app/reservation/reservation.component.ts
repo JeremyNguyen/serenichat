@@ -8,6 +8,7 @@ import DateUtil from '../../commons/utils/date-util';
 import {ReservationService} from '../../commons/services/reservation.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {CreneauDto} from '../../commons/dtos/creneauDto';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-reservation',
@@ -38,10 +39,9 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('init');
     this.startOfWeek = moment().startOf('week').add(1, 'd').toDate();
     this.endOfWeek = moment().endOf('week').add(1, 'd').toDate();
-    this.refreshWeek();
+    timer(0, 30000).subscribe(() => this.refreshWeek());
   }
 
   getDay(day: number, short: boolean) {
