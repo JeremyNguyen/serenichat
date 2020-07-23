@@ -11,7 +11,7 @@ export class ReservationService {
 
   private readonly HEADERS: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-  private readonly URL_RESERVATIONS = 'http://localhost:3000/seances';
+  private readonly URL_RESERVATIONS = 'http://serenichat.fr:3000/seances';
 
   constructor(private httpClient: HttpClient) {
   }
