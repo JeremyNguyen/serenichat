@@ -23,8 +23,8 @@ export class ReservationService {
 
   reserver(formulaire: FormulaireDto) {
     const tzoffset = new Date().getTimezoneOffset() * 60000;
-    formulaire.debut = new Date(formulaire.debut - tzoffset);
-    formulaire.fin = new Date(formulaire.fin - tzoffset);
+    formulaire.debut = new Date(formulaire.debut.getTime() - tzoffset);
+    formulaire.fin = new Date(formulaire.fin.getTime() - tzoffset);
     return this.httpClient.post(this.URL_RESERVATIONS, formulaire, {headers: this.HEADERS});
   }
 
