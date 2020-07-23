@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {SeanceDto} from '../dtos/seanceDto';
 import {FormulaireDto} from '../dtos/formulaireDto';
 import {Observable} from 'rxjs';
 import {CreneauDto} from '../dtos/creneauDto';
@@ -12,7 +11,7 @@ export class ReservationService {
 
   private readonly HEADERS: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-  private readonly URL_RESERVATIONS = 'http://serenichat.fr:3000/seances';
+  private readonly URL_RESERVATIONS = 'http://localhost:3000/seances';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -23,6 +22,9 @@ export class ReservationService {
   }
 
   reserver(formulaire: FormulaireDto) {
+    const tzoffset = new Date().getTimezoneOffset() * 60000;
+    formulaire.debut = new Date(formulaire.debut - tzoffset);
+    formulaire.fin = new Date(formulaire.fin - tzoffset);
     return this.httpClient.post(this.URL_RESERVATIONS, formulaire, {headers: this.HEADERS});
   }
 

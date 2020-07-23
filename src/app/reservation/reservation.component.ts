@@ -60,7 +60,12 @@ export class ReservationComponent implements OnInit {
   refreshWeek() {
     this.reservationService.getReservations(this.startOfWeek, this.endOfWeek).subscribe(
       (reservations: CreneauDto[]) => {
-        this.creneaux = reservations;
+        this.creneaux = reservations.map(value => {
+          const tzoffset = new Date().getTimezoneOffset() * 60000;
+          value.debut = new Date( new Date(value.debut).getTime() + tzoffset);
+          value.fin = new Date(new Date(value.fin).getTime() + tzoffset);
+          return value;
+        });
         this.week = [];
         this.seances = [[], [], [], [], [], [], []];
         for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
