@@ -9,7 +9,12 @@ import {CreneauDto} from '../dtos/creneauDto';
 })
 export class ReservationService {
 
-  private readonly HEADERS: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  private readonly HEADERS: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+    Pragma: 'no-cache',
+    Expires: '0'
+  });
 
   private readonly URL_RESERVATIONS = 'http://serenichat.fr:3000/seances';
 
