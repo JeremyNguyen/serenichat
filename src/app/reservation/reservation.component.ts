@@ -38,6 +38,7 @@ export class ReservationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('init');
     this.startOfWeek = moment().startOf('week').add(1, 'd').toDate();
     this.endOfWeek = moment().endOf('week').add(1, 'd').toDate();
     this.refreshWeek();
