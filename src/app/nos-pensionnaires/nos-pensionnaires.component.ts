@@ -26,6 +26,10 @@ export class NosPensionnairesComponent implements OnInit {
     {
       image: '../../assets/images/régatetxt.jpg',
       alt: 'regate'
+    },
+    {
+      image: '../../assets/images/4ptxt.jpg',
+      alt: '4 petites'
     }
   ];
 
