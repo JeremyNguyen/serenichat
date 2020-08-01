@@ -16,11 +16,11 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'triplés'
     },
     {
-      image: '../../assets/images/LuluTokyotxt.png',
+      image: '../../assets/images/LuluTokyotxt.jpg',
       alt: 'lapines'
     },
     {
-      image: '../../assets/images/3axostxt.png',
+      image: '../../assets/images/3axostxt.jpg',
       alt: 'axos'
     },
     {
