@@ -40,7 +40,7 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
     FormulaireComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
