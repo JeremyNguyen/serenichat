@@ -24,20 +24,16 @@ export class NosLocauxComponent implements OnInit {
       alt: 'triplés arbre'
     },
     {
-      image: '../../assets/images/LuluTokyo3.jpg',
-      alt: 'lapines2'
-    },
-    {
-      image: '../../assets/images/triplés2.jpg',
-      alt: 'triplés'
-    },
-    {
       image: '../../assets/images/axo.jpg',
       alt: 'axo'
     },
     {
       image: '../../assets/images/lulumimi.jpg',
       alt: 'lulu'
+    },
+    {
+      image: '../../assets/images/LuluTokyo3.jpg',
+      alt: 'lapines2'
     },
     {
       image: '../../assets/images/mimichat.jpg',
@@ -54,6 +50,10 @@ export class NosLocauxComponent implements OnInit {
     {
       image: '../../assets/images/licemimi.jpg',
       alt: 'chat porté'
+    },
+    {
+      image: '../../assets/images/triplés2.jpg',
+      alt: 'triplés'
     },
     {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
