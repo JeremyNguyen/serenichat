@@ -52,6 +52,10 @@ export class NosLocauxComponent implements OnInit {
       alt: 'tokyo'
     },
     {
+      image: '../../assets/images/licemimi.jpg',
+      alt: 'chat porté'
+    },
+    {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
       alt: 'salle senso'
