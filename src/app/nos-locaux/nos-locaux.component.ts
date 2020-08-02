@@ -36,6 +36,22 @@ export class NosLocauxComponent implements OnInit {
       alt: 'axo'
     },
     {
+      image: '../../assets/images/lulumimi.jpg',
+      alt: 'lulu'
+    },
+    {
+      image: '../../assets/images/mimichat.jpg',
+      alt: 'chaton'
+    },
+    {
+      image: '../../assets/images/sansamimi.jpg',
+      alt: 'sansa'
+    },
+    {
+      image: '../../assets/images/tokyomimi.jpg',
+      alt: 'tokyo'
+    },
+    {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
       alt: 'salle senso'
