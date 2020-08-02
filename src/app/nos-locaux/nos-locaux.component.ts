@@ -24,7 +24,7 @@ export class NosLocauxComponent implements OnInit {
       alt: 'triplés arbre'
     },
     {
-      image: '../../assets/images/LuluTokyo3.png',
+      image: '../../assets/images/LuluTokyo3.jpg',
       alt: 'lapines2'
     },
     {
@@ -36,7 +36,7 @@ export class NosLocauxComponent implements OnInit {
       alt: 'axo'
     },
     {
-      thumbImage: '../../assets/images/thumbnsalle.png',
+      thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
       alt: 'salle senso'
     }
