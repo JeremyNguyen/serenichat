@@ -13,7 +13,7 @@ export class NosPensionnairesComponent implements OnInit {
   images: Array<object> = [
     {
       image: '../../assets/images/tripléstxt.jpg',
-      alt: 'triplés'
+      alt: 'triplés chats'
     },
     {
       image: '../../assets/images/LuluTokyotxt.jpg',
@@ -21,15 +21,15 @@ export class NosPensionnairesComponent implements OnInit {
     },
     {
       image: '../../assets/images/3axostxt.jpg',
-      alt: 'axos'
+      alt: 'axolotls'
     },
     {
       image: '../../assets/images/régatetxt.jpg',
-      alt: 'regate'
+      alt: 'Regate chat'
     },
     {
       image: '../../assets/images/4ptxt.jpg',
-      alt: '4 petites'
+      alt: '4 petites chats'
     }
   ];
 

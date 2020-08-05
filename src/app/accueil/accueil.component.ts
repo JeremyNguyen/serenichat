@@ -13,7 +13,7 @@ export class AccueilComponent implements OnInit {
   images: Array<object> = [
     {
       image: '../../assets/images/local global.jpg',
-      alt: 'local'
+      alt: 'local médiation animale Paris'
     }
   ];
 

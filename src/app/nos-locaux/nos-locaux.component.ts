@@ -13,27 +13,27 @@ export class NosLocauxComponent implements OnInit {
   images: Array<object> = [
     {
       image: '../../assets/images/local global.jpg',
-      alt: 'local'
+      alt: 'local médiation animale Paris'
     },
     {
       image: '../../assets/images/Branzoé.jpg',
-      alt: 'Bran'
+      alt: 'Bran chat'
     },
     {
       image: '../../assets/images/triplésarbre.jpg',
-      alt: 'triplés arbre'
+      alt: 'triplés chats arbre'
     },
     {
       image: '../../assets/images/axo.jpg',
-      alt: 'axo'
+      alt: 'axolotls'
     },
     {
       image: '../../assets/images/lulumimi.jpg',
-      alt: 'lulu'
+      alt: 'Lulu lapine'
     },
     {
       image: '../../assets/images/LuluTokyo3.jpg',
-      alt: 'lapines2'
+      alt: 'lapines'
     },
     {
       image: '../../assets/images/mimichat.jpg',
@@ -41,11 +41,11 @@ export class NosLocauxComponent implements OnInit {
     },
     {
       image: '../../assets/images/sansamimi.jpg',
-      alt: 'sansa'
+      alt: 'Sansa chat'
     },
     {
       image: '../../assets/images/tokyomimi.jpg',
-      alt: 'tokyo'
+      alt: 'Tokyo lapine'
     },
     {
       image: '../../assets/images/licemimi.jpg',
@@ -53,12 +53,12 @@ export class NosLocauxComponent implements OnInit {
     },
     {
       image: '../../assets/images/triplés2.jpg',
-      alt: 'triplés'
+      alt: 'triplés chats'
     },
     {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
-      alt: 'salle senso'
+      alt: 'salle sensorielle'
     }
   ];
 
