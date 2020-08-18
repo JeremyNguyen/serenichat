@@ -20,7 +20,7 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'Bran'
     },
     {
-      image: '../../assets/images/sansaalicesontxt.jpg',
+      image: '../../assets/images/sansa soleiltxt.jpg',
       alt: 'Sansa'
     },
     {
