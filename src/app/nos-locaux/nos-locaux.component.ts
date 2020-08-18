@@ -12,48 +12,28 @@ export class NosLocauxComponent implements OnInit {
 
   images: Array<object> = [
     {
-      image: '../../assets/images/local global.jpg',
+      image: '../../assets/images/local global nos locaux.jpg',
       alt: 'local médiation animale Paris'
     },
     {
-      image: '../../assets/images/Branzoé.jpg',
-      alt: 'Bran chat'
+      image: '../../assets/images/tokyolulucaraliceson.jpg',
+      alt: 'Lapines qui mangent'
     },
     {
-      image: '../../assets/images/triplésarbre.jpg',
-      alt: 'triplés chats arbre'
+      image: '../../assets/images/couleurindiepeutetrealiceson.jpg',
+      alt: 'Indie ou Mia'
     },
     {
       image: '../../assets/images/axo.jpg',
-      alt: 'axolotls'
+      alt: 'Axolotls'
     },
     {
-      image: '../../assets/images/lulumimi.jpg',
-      alt: 'Lulu lapine'
+      image: '../../assets/images/moilapinesaliceson.jpg',
+      alt: 'Noémie et lapines'
     },
     {
-      image: '../../assets/images/LuluTokyo3.jpg',
-      alt: 'lapines'
-    },
-    {
-      image: '../../assets/images/mimichat.jpg',
-      alt: 'chaton'
-    },
-    {
-      image: '../../assets/images/sansamimi.jpg',
-      alt: 'Sansa chat'
-    },
-    {
-      image: '../../assets/images/tokyomimi.jpg',
-      alt: 'Tokyo lapine'
-    },
-    {
-      image: '../../assets/images/licemimi.jpg',
-      alt: 'chat porté'
-    },
-    {
-      image: '../../assets/images/triplés2.jpg',
-      alt: 'triplés chats'
+      image: '../../assets/images/triplésarbrecotes.jpg',
+      alt: 'Sansa, Bran et Arya'
     },
     {
       thumbImage: '../../assets/images/thumbnsalle.jpg',

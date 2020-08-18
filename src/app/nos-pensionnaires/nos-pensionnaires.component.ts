@@ -12,25 +12,42 @@ export class NosPensionnairesComponent implements OnInit {
 
   images: Array<object> = [
     {
-      image: '../../assets/images/tripléstxt.jpg',
-      alt: 'triplés chats'
+      image: '../../assets/images/aryaalicesontxt.jpg',
+      alt: 'Arya'
     },
     {
-      image: '../../assets/images/LuluTokyotxt.jpg',
-      alt: 'lapines'
+      image: '../../assets/images/branalicesontxt.jpg',
+      alt: 'Bran'
+    },
+    {
+      image: '../../assets/images/sansaalicesontxt.jpg',
+      alt: 'Sansa'
+    },
+    {
+      image: '../../assets/images/régatemoitxt.jpg',
+      alt: 'Regate'
+    },
+    {
+      image: '../../assets/images/tokyolulualicesontxt.jpg',
+      alt: 'Lapines'
+    },
+    {
+      image: '../../assets/images/miasansatxt.jpg',
+      alt: 'Mia'
+    },
+    {
+      image: '../../assets/images/indiealicesontxt.jpg',
+      alt: 'Indie'
+    },
+    {
+      image: '../../assets/images/lilitxt.jpg',
+      alt: 'Lili'
     },
     {
       image: '../../assets/images/3axostxt.jpg',
-      alt: 'axolotls'
-    },
-    {
-      image: '../../assets/images/régatetxt.jpg',
-      alt: 'Regate chat'
-    },
-    {
-      image: '../../assets/images/4ptxt.jpg',
-      alt: '4 petites chats'
+      alt: 'Axolotls'
     }
+
   ];
 
   constructor() {

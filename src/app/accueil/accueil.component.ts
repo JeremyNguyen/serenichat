@@ -9,11 +9,16 @@ export class AccueilComponent implements OnInit {
 
   showFlag = false;
   selectedImageIndex = -1;
+  selectedImageIndex2 = -1;
 
-  images: Array<object> = [
+  images: Array<any> = [
     {
       image: '../../assets/images/local global.jpg',
       alt: 'local médiation animale Paris'
+    },
+    {
+      image: '../../assets/images/moichatnoirblancaliceson.jpg',
+      alt: 'photo Noémie et chat'
     }
   ];
 
@@ -30,5 +35,15 @@ export class AccueilComponent implements OnInit {
   closeEventHandler() {
     this.showFlag = false;
     this.selectedImageIndex = -1;
+  }
+
+  showLightbox2(index) {
+    this.selectedImageIndex2 = index;
+    this.showFlag = true;
+  }
+
+  closeEventHandler2() {
+    this.showFlag = false;
+    this.selectedImageIndex2 = -1;
   }
 }
