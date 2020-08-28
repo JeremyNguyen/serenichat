@@ -8,7 +8,7 @@ import DateUtil from '../../commons/utils/date-util';
 import {ReservationService} from '../../commons/services/reservation.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {CreneauDto} from '../../commons/dtos/creneauDto';
-import { timer } from 'rxjs';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-reservation',
@@ -63,7 +63,7 @@ export class ReservationComponent implements OnInit {
       (reservations: CreneauDto[]) => {
         this.creneaux = reservations.map(value => {
           const tzoffset = new Date().getTimezoneOffset() * 60000;
-          value.debut = new Date( new Date(value.debut).getTime() + tzoffset);
+          value.debut = new Date(new Date(value.debut).getTime() + tzoffset);
           value.fin = new Date(new Date(value.fin).getTime() + tzoffset);
           return value;
         });
@@ -116,8 +116,16 @@ export class ReservationComponent implements OnInit {
     return new SeanceDto(dispo, debut, fin);
   }
 
+  isFerme(debut: moment.Moment, fin: moment.Moment) {
+    const isDimanche = debut.day() === 0;
+    const isNotVendrediMidi = debut.day() === 5 && !(debut.hours() >= 12 && fin.hours() < 14);
+    const isMercrediMatin = debut.day() === 3 && fin.hours() <= 13;
+    const isJeudiAprem = debut.day() === 4 && debut.hours() > 14;
+    return isDimanche || isMercrediMatin || isJeudiAprem || isNotVendrediMidi;
+  }
+
   setDispo(debut: moment.Moment, fin: moment.Moment) {
-    if (debut.day() === 0 || debut.day() === 1) {
+    if (this.isFerme(debut, fin)) {
       return 'closed';
     }
     for (const creneau of this.creneaux) {
