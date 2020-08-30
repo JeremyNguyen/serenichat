@@ -20,6 +20,10 @@ export class NosLocauxComponent implements OnInit {
       alt: 'Lapines qui mangent'
     },
     {
+      image: '../../assets/images/triplésarbrecotés.jpg',
+      alt: 'Sansa, Bran et Arya'
+    },
+    {
       image: '../../assets/images/couleurindiepeutetrealiceson.jpg',
       alt: 'Indie ou Mia'
     },
@@ -28,12 +32,28 @@ export class NosLocauxComponent implements OnInit {
       alt: 'Axolotls'
     },
     {
+      image: '../../assets/images/Arya et Mia.jpg',
+      alt: 'Arya et Mia'
+    },
+    {
       image: '../../assets/images/moilapinesaliceson.jpg',
       alt: 'Noémie et lapines'
     },
     {
-      image: '../../assets/images/triplésarbrecotes.jpg',
-      alt: 'Sansa, Bran et Arya'
+      image: '../../assets/images/Moi et Bran NB.jpg',
+      alt: 'Bran et Noémie'
+    },
+    {
+      image: '../../assets/images/Tête Lili.jpg',
+      alt: 'Lili'
+    },
+    {
+      image: '../../assets/images/Arya câlin Mia.jpg',
+      alt: 'Arya et Mia'
+    },
+    {
+      image: '../../assets/images/Ventres Mia Régate.jpg',
+      alt: 'Mia et Régate'
     },
     {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
