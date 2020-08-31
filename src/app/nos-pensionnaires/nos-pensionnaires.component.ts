@@ -24,23 +24,19 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'Sansa'
     },
     {
-      image: '../../assets/images/régatemoitxt.jpg',
-      alt: 'Regate'
-    },
-    {
       image: '../../assets/images/tokyolulualicesontxt.jpg',
       alt: 'Lapines'
     },
     {
-      image: '../../assets/images/miasansatxt.jpg',
-      alt: 'Mia'
+      image: '../../assets/images/Régate lèche Miatxt.jpg',
+      alt: 'Régate et Mia'
     },
     {
       image: '../../assets/images/indiealicesontxt.jpg',
       alt: 'Indie'
     },
     {
-      image: '../../assets/images/lilitxt.jpg',
+      image: '../../assets/images/Lili dodotxt.jpg',
       alt: 'Lili'
     },
     {
