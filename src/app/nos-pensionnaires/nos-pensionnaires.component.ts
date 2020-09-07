@@ -36,10 +36,6 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'Indie'
     },
     {
-      image: '../../assets/images/Lili dodotxt.jpg',
-      alt: 'Lili'
-    },
-    {
       image: '../../assets/images/3axostxt.jpg',
       alt: 'Axolotls'
     }
