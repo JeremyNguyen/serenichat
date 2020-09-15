@@ -1,7 +1,7 @@
 <div class="text-big">
   <div class="color-peche-foncee text-center mt-5">
-    <div>Ouverture officielle le <b>samedi 18 Juillet 2020</b> !</div>
-    <div>-La première séance <u>d’une heure</u> est <b>gratuite</b>-</div>
+    <div>Ici, vous pouvez <b>réserver un créneau en ligne.</b></div>
+    <div>-La première séance <u>d’une heure</u> est <b>gratuite</b>!-</div>
      <div class="color-turquoise-foncee text-left mt-3">
       <div>Pour les heures suivantes, nos tarifs :</div>
       <div>- Une place en séance d’une heure <b>classique</b> : 30 euros.</div>
@@ -13,15 +13,22 @@
       <div>Remarque : si vous souhaitez réserver pour un adulte, merci de nous <span class="typo-link"
         routerLink="/contact">contacter</span> au préalable pour en discuter.</div>
       </div>
+      <div class="color-turquoise-foncee text-center mt-5">
+        <div>(Certains navigateurs ne veulent pas actualiser la page Réservation quand vous cliquez sur "actualiser" ou utilisez F5. 
+          Pas de panique, l'emploi du temps est actualisé automatiquement ! 
+          Vous pouvez aussi aller sur un autre onglet de notre site puis revenir sur "Réservation").</div>
+        </div>
   </div>
 </div>
 
 <div class="row justify-content-center mt-5">
-  <div class="col-1">
-    <mat-icon (click)="addDays(-7)">keyboard_arrow_left</mat-icon>
+  <div class="col-6 text-left color-turquoise-foncee text-big curseur" (click)="addDays(-7)">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <span>Semaine précédente</span>
   </div>
-  <div class="col-1">
-    <mat-icon (click)="addDays(7)">keyboard_arrow_right</mat-icon>
+  <div class="col-6 text-right color-turquoise-foncee text-big curseur" (click)="addDays(7)">
+    <span>Semaine suivante</span>
+    <mat-icon>keyboard_arrow_right</mat-icon>
   </div>
 </div>
 
@@ -50,7 +57,7 @@
 
 <div class="row justify-content-start legende">
   <div class="col-2 empty-color">2/2 places libres</div>
-  <div class="col-2 half-hour-color">1/2 place libre horaire</div>
+  <div class="col-2 half-hour-color">1/2 place libre une heure</div>
   <div class="col-2 half-day-color">1/2 place libre demi-journée</div>
   <div class="col-2 full-color">Complet</div>
   <div class="col-2 closed-color">Fermé</div>

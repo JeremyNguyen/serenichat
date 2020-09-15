@@ -59,6 +59,11 @@ export class NosLocauxComponent implements OnInit {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
       alt: 'salle sensorielle'
+    },
+    {
+      thumbImage: '../../assets/images/thumb mur.jpg',
+      video: '../../assets/video/vid mur.mp4',
+      alt: 'mur eau'
     }
   ];
 
