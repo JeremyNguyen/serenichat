@@ -36,10 +36,6 @@ export class NosLocauxComponent implements OnInit {
       alt: 'Arya et Mia'
     },
     {
-      image: '../../assets/images/moilapinesaliceson.jpg',
-      alt: 'Noémie et lapines'
-    },
-    {
       image: '../../assets/images/Moi et Bran NB.jpg',
       alt: 'Bran et Noémie'
     },

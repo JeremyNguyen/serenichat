@@ -28,18 +28,25 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'Lapines'
     },
     {
-      image: '../../assets/images/Régate lèche Miatxt.jpg',
-      alt: 'Régate et Mia'
+      image: '../../assets/images/3axostxt.jpg',
+      alt: 'Axolotls'
+    },
+    {
+      image: '../../assets/images/régatebientottxt.jpg',
+      alt: 'Régate'
+    },
+    {
+      image: '../../assets/images/Miaadoptxt.jpg',
+      alt: 'Mia'
     },
     {
       image: '../../assets/images/indiealicesontxt.jpg',
       alt: 'Indie'
     },
     {
-      image: '../../assets/images/3axostxt.jpg',
-      alt: 'Axolotls'
-    }
-
+      image: '../../assets/images/Lili dodotxt.jpg',
+      alt: 'Lili'
+    }  
   ];
 
   constructor() {
