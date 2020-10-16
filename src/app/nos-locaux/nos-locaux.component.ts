@@ -52,6 +52,14 @@ export class NosLocauxComponent implements OnInit {
       alt: 'Mia et Régate'
     },
     {
+      image: '../../assets/images/salle senso1jpg.jpg',
+      alt: 'Salle sensorielle 1'
+    },
+    {
+      image: '../../assets/images/salle senso2jpg.jpg',
+      alt: 'Salle sensorielle 2'
+    },
+    {
       thumbImage: '../../assets/images/thumbnsalle.jpg',
       video: '../../assets/video/sansson.mp4',
       alt: 'salle sensorielle'
