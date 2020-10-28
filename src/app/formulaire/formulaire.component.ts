@@ -35,7 +35,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   getDemiJourneeLabel() {
-    return this.seance.debut.getHours() >= 13 ? 'après-midi complète (14h00 - 18h00)' : 'matinée complète (9h00 - 13h00)';
+    return this.seance.debut.getHours() >= 13 ? 'après-midi complète (14h00 - 18h00)' : 'Médiation animale et sensorielle : matinée complète (9h00 - 13h00)';
   }
 
   getDate(date: Date) {

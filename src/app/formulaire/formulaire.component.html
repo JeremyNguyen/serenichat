@@ -10,7 +10,9 @@
         <mat-radio-group [(ngModel)]="demiJournee" name="demiJournee" required class="title-radio"
         [disabled]="seance.dispo === 'half-day' || !data.demiJourneePossible" (change)="setHoraires()">
           <mat-radio-button [value]="true">{{ getDemiJourneeLabel() }}</mat-radio-button>
-          <mat-radio-button [value]="false">séance de {{ getTime(seance.debut) }} - {{ getTime(seance.fin) }}
+          <mat-radio-button [value]="false">Médiation animale et sensorielle : séance de {{ getTime(seance.debut) }} - {{ getTime(seance.fin) }}
+          </mat-radio-button>
+          <mat-radio-button [value]="false">Cours particuliers : de {{ getTime(seance.debut) }} à {{ getTime(seance.fin) }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -93,7 +95,7 @@
 
         <div class="row">
           <div class="col">
-            <label>L'accompagnant restera pendant la séance :</label>
+            <label>L'accompagnant restera pendant la séance (conseillé si le visiteur accompagné est adulte) :</label>
             <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>

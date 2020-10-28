@@ -1,9 +1,8 @@
 <div>
-
   <div class="row justify-content-center pt-4 pb-4">
     <div class="diaporama text-center">
       <img class="image-diaporama" [src]="images[0].image" [alt]="images[0].alt"
-                 (click)="showLightbox(0)">
+           (click)="showLightbox(0)">
     </div>
   </div>
 </div>
@@ -15,30 +14,55 @@
   (close)="closeEventHandler()">
 </ng-image-fullscreen-view>
 
+<div class="pb-4 color-peche-foncee text-big text-center"> Le concept de <b>Séréni'chat</b> : de la <b>médiation animale
+  et sensorielle</b>, des <b>cours particuliers</b> et une solution pour faire <b>garder ses animaux domestiques</b>,
+  tout ça à Paris !
+</div>
+
 <div class="row">
   <div class="col pb-3">
     <div class="jumbo">
       <div class="jumbo-title">
-        Le concept de <b>Séréni'chat</b> : de la <b>médiation animale</b> à Paris
+        La <b>médiation animale et sensorielle</b>
       </div>
       <div class="jumbo-body">
         <div class="color-turquoise-foncee text-center">
-          <div><b>Séréni'chat</b> est un lieu dédié à l'assistance aux <b>personnes handicapées</b> (et plus spécialement les enfants) par le <b>contact
-            avec l'animal</b>. Notre local comporte également une salle <b>multi-sensorielle.</b></div>
-          <div>Nous essayons aussi d'apporter un <b>soulagement</b> aux <b>parents ou aidants</b> : ils peuvent tout à fait nous <b>confier</b> leur enfant
-             sans rester pendant la séance, et profiter ainsi d'une <b>heure de libre</b> !</div>
-          <div>Nous recueillons des <b>chats</b> et <b>lapins</b> en attente d'adoption, et ouvrons nos portes aux enfants en
-            ressentant le besoin afin qu'ils profitent de quelques heures en compagnie de nos petits protégés. 
+          <div><b>Séréni'chat</b> est un lieu dédié à l'assistance aux <b>personnes handicapées</b> (et plus
+            spécialement les enfants) par le <b>contact
+              avec l'animal</b> et l'accès à une salle <b>multi-sensorielle.</b></div>
+          <div>Nous essayons aussi d'apporter un <b>soulagement</b> aux <b>parents ou aidants</b> : ils peuvent tout à
+            fait nous <b>confier</b> leur enfant
+            sans rester pendant la séance, et profiter ainsi d'une <b>heure de libre</b> !
           </div>
-          <div>La <b>médiation animale</b> (ou <b>zoothérapie</b>) et la stimulation <b>sensorielle</b> apportent un réel <b>mieux être</b> à leurs bénéficiaires. Si vous voulez tester une <b>séance gratuite</b>, vous êtes les bienvenus !
+          <div>La <b>médiation animale</b> (ou <b>zoothérapie</b>) et la stimulation <b>sensorielle</b> apportent un
+            réel <b>mieux être</b> à leurs bénéficiaires. Si vous voulez tester une <b>séance gratuite</b>, vous êtes
+            les bienvenus !
           </div>
           <div class="mt-3 color-peche-foncee">
-            Comment se déroule une <b>séance</b> ?</div>
-          <div>Cela dépend de chaque visiteur : certains choissent des <b>activités proposées</b> 
+            Comment se déroule une séance ?
+          </div>
+          <div>Cela dépend de chaque visiteur : certains choissent des <b>activités proposées</b>
             (nourrissage, jeux, caresses, dessin, salle multi-sensorielle...),
-          d'autres aiment simplement <b>profiter du lieu</b> de façon autonome sans rien faire de particulier,
-          et d'autres encore apportent leur <b>activité préférée</b> (casque et musique, matériel de dessin ou 
-          de photographie par exemple) pour être simplement entourés d'animaux.
+            d'autres aiment simplement <b>profiter du lieu</b> de façon autonome sans rien faire de particulier,
+            et d'autres encore apportent leur <b>activité préférée</b> (casque et musique, matériel de dessin ou
+            de photographie par exemple) pour être simplement entourés d'animaux.
+          </div>
+          <div class="mt-3 color-peche-foncee">
+            La médiation animale et sensorielle s'adresse aux :
+          </div>
+          <ul class="color-turquoise-foncee text-left">
+            <li>Enfants <b>neuro-atypiques</b> (TSA, TED)</li>
+            <li>Enfants souffrant d'<b>anxiété</b> ou de <b>troubles obsessionnels</b></li>
+            <li>Enfants porteurs de <b>trisomie</b></li>
+            <li>Enfants <b>malades chroniques</b></li>
+            <li><b>Particuliers</b> ou <b>organisations</b> : classes ULIS, HDJP, MDPH...</li>
+            <li><b>Parents</b> ou <b>aidants</b> à la recherche d'une activité leur apportant un <b>moment de répit</b>
+            </li>
+          </ul>
+          <div class="color-peche-foncee text-center mt-3">
+            Vous voulez réserver pour une personne non représentée ci-dessus (un adulte par exemple) ? <span
+            class="typo-link"
+            routerLink="/contact">Contactez-nous</span> afin de déterminer si c'est possible !
           </div>
         </div>
       </div>
@@ -47,20 +71,35 @@
   <div class="col">
     <div class="jumbo">
       <div class="jumbo-title">
-      <b>Séréni'chat</b> s'adresse aux :
+        Les <b>cours particuliers</b>
       </div>
       <div class="jumbo-body">
-        <ul class="color-turquoise-foncee">
-          <li>Enfants <b>neuro-atypiques</b> (TSA, TED)</li>
-          <li>Enfants souffrant d'<b>anxiété</b> ou de <b>troubles obsessionnels</b></li>
-          <li>Enfants porteurs de <b>trisomie</b></li>
-          <li>Enfants <b>malades chroniques</b></li>
-          <li><b>Particuliers</b> ou <b>organisations</b> : classes ULIS, HDJP, MDPH...</li>
-          <li><b>Parents</b> ou <b>aidants</b> à la recherche d'une activité leur apportant un <b>moment de répit</b></li>
-        </ul>
-        <div class="color-peche-foncee text-center mt-3">
-          Vous voulez réserver pour une personne non représentée ci-dessus (un adulte par exemple) ? <span class="typo-link"
-                                                                                   routerLink="/contact">Contactez-nous</span> afin de déterminer si c'est possible !
+        <div class="color-turquoise-foncee text-center">
+          <div class="mt-3 color-peche-foncee">
+            La médiation animale et sensorielle
+          </div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
+        </div>
+      </div>
+    </div>
+    <div class="jumbo">
+      <div class="jumbo-title">
+        Les <b>cours particuliers</b>
+      </div>
+      <div class="jumbo-body">
+        <div class="color-turquoise-foncee text-center">
+          <div class="mt-3 color-peche-foncee">
+            La médiation animale et sensorielle
+          </div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
+          <div>bla</div>
         </div>
       </div>
     </div>
@@ -69,7 +108,8 @@
 
 <div class="row mt-3 justify-content-center">
   <div class="col-11">
-    <img src="../../assets/images/free-cat-clipart-silhouette-vector-images.jpg" alt="cat logo" class="logo-cat">
+    <img src="../../assets/images/free-cat-clipart-silhouette-vector-images.jpg" alt="cat logo"
+         class="logo-cat">
     <div class="jumbo">
       <div class="jumbo-title">
         Qui gère <b>Séréni'chat</b> ?
@@ -87,9 +127,14 @@
         <div class="color-turquoise-foncee text-left">
           <div class="color-peche-foncee"><b>Noémie</b>, fondatrice :</div>
           <div class="color-turquoise-foncee">
-            <div>Enseignante de biologie accueillant depuis des années des élèves de classe ULIS, j'ai décidé de créer ma propre activité 
-              mêlant deux pôles essentiels à mon projet de vie : l'assistance aux personnes différentes et la protection des animaux.</div>
-            <div>Je me forme en continu concernant ces deux aspects de l'activité, et possède le certificat de capacité Animaux Domestiques ainsi qu'une formation aux Premiers Secours.</div>
+            <div>Enseignante de biologie accueillant depuis des années des élèves de classe ULIS, j'ai décidé de
+              créer ma propre activité
+              mêlant deux pôles essentiels à mon projet de vie : l'assistance aux personnes différentes et la
+              protection des animaux.
+            </div>
+            <div>Je me forme en continu concernant ces deux aspects de l'activité, et possède le certificat de
+              capacité Animaux Domestiques ainsi qu'une formation aux Premiers Secours.
+            </div>
             <div class="color-peche-foncee text-center mt-3">
               Vous êtes entre de bonnes mains !
             </div>
@@ -99,4 +144,3 @@
     </div>
   </div>
 </div>
-
