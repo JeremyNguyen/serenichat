@@ -117,10 +117,9 @@ export class ReservationComponent implements OnInit {
   }
 
   isFerme(debut: moment.Moment, fin: moment.Moment) {
-    const isDimanche = debut.day() === 0;
     const isVendredi = debut.day() === 5;
     const isMercrediMidi = debut.day() === 3 && debut.hours() >= 8 && fin.hours() <= 13;
-    return isDimanche || isMercrediMidi || isVendredi;
+    return isMercrediMidi || isVendredi;
   }
 
   setDispo(debut: moment.Moment, fin: moment.Moment) {
