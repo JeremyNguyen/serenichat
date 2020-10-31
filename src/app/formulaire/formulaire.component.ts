@@ -52,12 +52,12 @@ export class FormulaireComponent implements OnInit {
   getPrice() {
     let price;
     if (this.formulaireDto.seanceIndividuelle) {
-      price = this.demiJournee ? 120 : 45;
+      price = this.demiJournee ? 90 : 30;
     } else {
       if (this.demiJournee) {
-        price = this.formulaireDto.nbVisiteur === 1 ? 75 : 140;
+        price = this.formulaireDto.nbVisiteur === 1 ? 60 : 100;
       } else {
-        price = this.formulaireDto.nbVisiteur === 1 ? 30 : 60;
+        price = this.formulaireDto.nbVisiteur === 1 ? 20 : 35;
       }
     }
     return price;
