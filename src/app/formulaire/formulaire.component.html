@@ -8,11 +8,9 @@
       </div>
       <div class="col">
         <mat-radio-group [(ngModel)]="demiJournee" name="demiJournee" required class="title-radio"
-        [disabled]="seance.dispo === 'half-day' || !data.demiJourneePossible" (change)="setHoraires()">
+                         [disabled]="seance.dispo === 'half-day' || !data.demiJourneePossible" (change)="setHoraires()">
           <mat-radio-button [value]="true">{{ getDemiJourneeLabel() }}</mat-radio-button>
-          <mat-radio-button [value]="false">Médiation animale et sensorielle : séance de {{ getTime(seance.debut) }} - {{ getTime(seance.fin) }}
-          </mat-radio-button>
-          <mat-radio-button [value]="false">Cours particulier : de {{ getTime(seance.debut) }} à {{ getTime(seance.fin) }}
+          <mat-radio-button [value]="false">Séance de {{ getTime(seance.debut) }} - {{ getTime(seance.fin) }}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -20,6 +18,13 @@
 
     <div class="container pt-3">
       <form #formulaire="ngForm" (ngSubmit)="reserver(formulaire)">
+
+        <div class="row">
+          <mat-radio-group [(ngModel)]="typeSeance" name="typeSeance" required class="title-radio" (change)="onTypeSeanceChange()">
+            <mat-radio-button [value]="'mediation'">Médiation animale et sensorielle</mat-radio-button>
+            <mat-radio-button [value]="'cours'">Cours particulier</mat-radio-button>
+          </mat-radio-group>
+        </div>
 
         <div class="row">
           <div class="col">
@@ -59,7 +64,7 @@
           <div class="col">
             <label>Je désire une séance individuelle :</label>
             <mat-radio-group [(ngModel)]="formulaireDto.seanceIndividuelle" name="seanceIndividuelle" required
-                             [disabled]="seance.dispo !== 'empty'"
+                             [disabled]="seance.dispo !== 'empty' || typeSeance === 'cours'"
                              (change)="seanceIndividuelleChange()">
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>
@@ -96,7 +101,7 @@
         <div class="row">
           <div class="col">
             <label>L'accompagnant restera pendant la séance (conseillé si le visiteur accompagné est adulte) :</label>
-            <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required>
+            <mat-radio-group [(ngModel)]="formulaireDto.accompagnementVisiteur" name="accompagnementVisiteur" required [disabled]="typeSeance === 'cours'">
               <mat-radio-button [value]="true">Oui</mat-radio-button>
               <mat-radio-button [value]="false">Non</mat-radio-button>
             </mat-radio-group>
@@ -106,8 +111,10 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Informations supplémentaires (ex : matière et niveau du cours, peur des animaux, hypo/hypersensibilité, conseils en cas de crise...)</mat-label>
-              <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire"></textarea>
+              <mat-label>Informations supplémentaires (ex : matière et niveau du cours, peur des animaux,
+                hypo/hypersensibilité, conseils en cas de crise...)
+              </mat-label>
+              <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire" [required]="typeSeance === 'cours'"></textarea>
             </mat-form-field>
           </div>
         </div>
@@ -150,7 +157,9 @@
           </div>
         </div>
 
-        <mat-error *ngIf="submitted && !formulaire.valid" class="text-center">Il y a des erreurs dans le formulaire, veuillez corriger votre saisie.</mat-error>
+        <mat-error *ngIf="submitted && !formulaire.valid" class="text-center">Il y a des erreurs dans le formulaire,
+          veuillez corriger votre saisie.
+        </mat-error>
 
         <div class="row justify-content-center mt-2">
           <button type="button" color="primary" mat-raised-button (click)="dialogRef.close(false)">Annuler</button>

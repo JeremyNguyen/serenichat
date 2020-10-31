@@ -18,6 +18,7 @@ export class FormulaireComponent implements OnInit {
   submitted = false;
   formulaireDto = new FormulaireDto();
   demiJournee = false;
+  typeSeance = 'mediation';
   checkboxConditions = false;
   checkboxPrivacy = false;
   seance: SeanceDto;
@@ -35,7 +36,9 @@ export class FormulaireComponent implements OnInit {
   }
 
   getDemiJourneeLabel() {
-    return this.seance.debut.getHours() >= 13 ? 'après-midi complète (14h00 - 18h00)' : 'Médiation animale et sensorielle : matinée complète (9h00 - 13h00)';
+    return this.seance.debut.getHours() >= 13 ?
+      'Après-midi complète (14h00 - 18h00)'
+      : 'Matinée complète (9h00 - 13h00)';
   }
 
   getDate(date: Date) {
@@ -58,6 +61,14 @@ export class FormulaireComponent implements OnInit {
       }
     }
     return price;
+  }
+
+  onTypeSeanceChange() {
+    this.formulaireDto.seanceIndividuelle = this.typeSeance === 'cours';
+    if (this.typeSeance === 'cours') {
+      this.formulaireDto.accompagnementVisiteur = false;
+    }
+    this.seanceIndividuelleChange();
   }
 
   seanceIndividuelleChange() {
