@@ -46,7 +46,7 @@ export class NosPensionnairesComponent implements OnInit {
     {
       image: '../../assets/images/Lili dodotxt.jpg',
       alt: 'Lili'
-    }  
+    }
   ];
 
   constructor() {
