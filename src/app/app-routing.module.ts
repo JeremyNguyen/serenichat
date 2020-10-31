@@ -6,6 +6,7 @@ import {NosPensionnairesComponent} from './nos-pensionnaires/nos-pensionnaires.c
 import {ReservationComponent} from './reservation/reservation.component';
 import {NousAiderComponent} from './nous-aider/nous-aider.component';
 import {ContactComponent} from './contact/contact.component';
+import {PensionComponent} from './pension/pension.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'pension-pour-chats',
+    component: PensionComponent
   }
 ];
 

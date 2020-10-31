@@ -3,31 +3,34 @@
     <div><b>Les locaux</b></div>
   </div>
   <div class="color-turquoise-foncee text-center">
-    <div>Séréni'chat a fait son nid au <a href="https://www.google.com/maps/place/15+Rue+Desargues,+75011+Paris" target="_blank">15, Rue Desargues 75011 Paris.</a></div>
+    <div>Séréni'chat a fait son nid au <a href="https://www.google.com/maps/place/15+Rue+Desargues,+75011+Paris"
+                                          target="_blank">15, Rue Desargues 75011 Paris.</a></div>
     <div>Le local est accessible aux personnes à mobilité réduite.</div>
     <div class="color-peche-foncee mt-2">-Cliquez sur les images et les vidéos pour les agrandir-</div>
   </div>
 
-<div class="row justify-content-center pt-4 pb-4">
-  <div class="diaporama">
-    <img class="image-diaporama" *ngFor="let image of images; let i = index;" [src]="image.image || image.thumbImage" [alt]="image.alt" (click)="showLightbox(i)">
+  <div class="row justify-content-center pt-4 pb-4">
+    <div class="diaporama">
+      <img class="image-diaporama" *ngFor="let image of images; let i = index;" [src]="image.image || image.thumbImage"
+           [alt]="image.alt" (click)="showLightbox(i)">
+    </div>
   </div>
-</div>
 
-<ng-image-fullscreen-view
-  [images]="images"
-  [imageIndex]="selectedImageIndex"
-  [show]="showFlag"
-  (close)="closeEventHandler()">
-</ng-image-fullscreen-view>
+  <ng-image-fullscreen-view
+    [images]="images"
+    [imageIndex]="selectedImageIndex"
+    [show]="showFlag"
+    (close)="closeEventHandler()">
+  </ng-image-fullscreen-view>
 
-<div class="text-big">
-<div class="color-peche-foncee text-center">
-  <div><b>Accès</b></div>
-</div>
-<div class="color-turquoise-foncee text-center">
-  <div><b>En métro</b> : Couronnes (ligne 2) ou Belleville (lignes 2 et 11)</div>
-  <div><b>En bus</b> : Maison des Metallos (bus 96), Couronnes (bus 96) ou Ramponeau (bus 20 et 71)</div>
-  <div><b>En voiture</b> : Places pour personnes en situation de handicap à proximité</div>
-</div>
+  <div class="text-big">
+    <div class="color-peche-foncee text-center">
+      <div><b>Accès</b></div>
+    </div>
+    <div class="color-turquoise-foncee text-center">
+      <div><b>En métro</b> : Couronnes (ligne 2) ou Belleville (lignes 2 et 11)</div>
+      <div><b>En bus</b> : Maison des Metallos (bus 96), Couronnes (bus 96) ou Ramponeau (bus 20 et 71)</div>
+      <div><b>En voiture</b> : Places pour personnes en situation de handicap à proximité</div>
+    </div>
+  </div>
 </div>
