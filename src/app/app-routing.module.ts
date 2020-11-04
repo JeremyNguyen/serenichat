@@ -7,6 +7,7 @@ import {ReservationComponent} from './reservation/reservation.component';
 import {NousAiderComponent} from './nous-aider/nous-aider.component';
 import {ContactComponent} from './contact/contact.component';
 import {PensionComponent} from './pension/pension.component';
+import {ClubNeuroAtypiqueComponent} from './club-neuro-atypique/club-neuro-atypique.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'pension-pour-chats',
     component: PensionComponent
+  },
+  {
+    path: 'club-neuro-atypique',
+    component: ClubNeuroAtypiqueComponent
   }
 ];
 
