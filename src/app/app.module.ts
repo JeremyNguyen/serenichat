@@ -12,6 +12,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { NousAiderComponent } from './nous-aider/nous-aider.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { ClubNeuroAtypiqueComponent } from './club-neuro-atypique/club-neuro-atypique.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormulaireComponent } from './formulaire/formulaire.component';
@@ -37,7 +38,8 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
     NousAiderComponent,
     ContactComponent,
     FooterComponent,
-    FormulaireComponent
+    FormulaireComponent,
+    ClubNeuroAtypiqueComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

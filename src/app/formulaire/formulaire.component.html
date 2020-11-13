@@ -111,7 +111,7 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Informations supplémentaires (ex : matière et niveau du cours, peur des animaux,
+              <mat-label>Informations supplémentaires (matière et niveau si cours, peur des animaux,
                 hypo/hypersensibilité, conseils en cas de crise...)
               </mat-label>
               <textarea matInput [(ngModel)]="formulaireDto.commentaire" name="commentaire" [required]="typeSeance === 'cours'"></textarea>
@@ -122,7 +122,7 @@
         <div class="row justify-content-center">
           <mat-card class="col-10 mb-3 text-center">
             <p>{{ getPrice() }} euros TTC (règlement sur place)</p>
-            <p>Rappel : la première séance <u>d'une heure</u> est gratuite !</p>
+            <p>Rappel : la première séance <u>d'une heure</u> de médiation animale est gratuite !</p>
           </mat-card>
         </div>
 
