@@ -149,7 +149,7 @@ export class ReservationComponent implements OnInit {
   }
 
   private isDemiJourneePossible(seance: SeanceDto) {
-    const dayOfSeance = seance.debut.getDay() - 1;
+    const dayOfSeance = seance.debut.getDay();
     const seancesOfDay = this.seances[dayOfSeance];
     const isMatinee = seance.debut.getHours() < 13;
     const seancesOfDemi = isMatinee ? seancesOfDay.slice(0, 3) : seancesOfDay.slice(3, 6);
