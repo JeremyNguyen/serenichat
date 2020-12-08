@@ -36,6 +36,18 @@ export class NosPensionnairesComponent implements OnInit {
       alt: 'Axolotls'
     },
     {
+      image: '../../assets/images/Berlioz.jpg',
+      alt: 'Berlioz'
+    },
+    {
+      image: '../../assets/images/Toulouse.jpg',
+      alt: 'Toulouse'
+    },
+    {
+      image: '../../assets/images/Princesse.jpg',
+      alt: 'Princesse'
+    },
+    {
       image: '../../assets/images/Miaadoptxt.jpg',
       alt: 'Mia'
     },
