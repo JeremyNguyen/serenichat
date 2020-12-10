@@ -27,15 +27,17 @@
         </div>
 
         <div class="row">
+          <div>(Si vous réservez pour vous-même et ne serez pas accompagné d'un aidant, notez juste 
+            "pas d'accompagnant" dans les cases Nom et Prénom accompagnant)</div>
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Nom accompagnant (ou écrire "pas d'accompagnant")</mat-label>
+              <mat-label>Nom accompagnant</mat-label>
               <input matInput [(ngModel)]="formulaireDto.nomAidant" name="nomAidant" required>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="w-100">
-              <mat-label>Prénom accompagnant (ou écrire "pas d'accompagnant")</mat-label>
+              <mat-label>Prénom accompagnant</mat-label>
               <input matInput [(ngModel)]="formulaireDto.prenomAidant" name="prenomAidant" required>
             </mat-form-field>
           </div>
