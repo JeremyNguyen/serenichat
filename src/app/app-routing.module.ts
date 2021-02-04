@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {AccueilComponent} from './accueil/accueil.component';
 import {NosLocauxComponent} from './nos-locaux/nos-locaux.component';
 import {NosPensionnairesComponent} from './nos-pensionnaires/nos-pensionnaires.component';
-import {ReservationComponent} from './reservation/reservation.component';
 import {NousAiderComponent} from './nous-aider/nous-aider.component';
 import {ContactComponent} from './contact/contact.component';
 import {PensionComponent} from './pension/pension.component';
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path: 'nos-pensionnaires',
     component: NosPensionnairesComponent
-  },
-  {
-    path: 'reservation',
-    component: ReservationComponent
   },
   {
     path: 'nous-aider',
